@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Besitzer": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Adresse, Kontakt, Notizen). Keine Datumsfelder, keine Preisfelder, keine applookups mit Zielfedern. Nichts berechenbar."
+    },
+    "Hundekartei": {
+      "placeholders_set": 9,
+      "defaults_keys": ["impfstatus"],
+      "computed_keys": [],
+      "reason": "Tier-Stammdaten mit Geburtsdatum und Gewicht. Keine Preisfelder, keine Zwischensummen. Das Geburtsdatum ist eine freie Eingabe (individuelle Daten). Impfstatus wird auf 'unbekannt' vorbelegt (rationaler Null-Wert)."
+    },
+    "Belegung & Buchungen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["anreisedatum", "abreisedatum", "status"],
+      "computed_keys": ["_belegung_dauer_nächte"],
+      "reason": "Aufenthalts-Entity (Anreise/Abreise-Paar). Backend-Preis-Feld wird manuell eingegeben (kein Tagespreis-Lookup). Virtuelle Dauer-Berechnung für UI-Hinweis. Status default auf 'aktiv' (initialer Workflow-Zustand)."
+    },
+    "Buchungsanfragen": {
+      "placeholders_set": 11,
+      "defaults_keys": ["anfrage_status"],
+      "computed_keys": ["_anfrage_dauer_nächte"],
+      "reason": "Anfrage vor Buchung mit Interessent+Hund-Daten und Wunsch-Datumsbereich. Virtueller Dauer-Key für UI-Aggregat. Status default auf 'neu' (Workflow-Start)."
+    },
+    "Pfoten-Porträt": {
+      "placeholders_set": 8,
+      "defaults_keys": ["erstellungsdatum"],
+      "computed_keys": [],
+      "reason": "Content-Entity (Porträt über Tier). Reine Text+Datum-Felder. Erstellungsdatum wird auf heute vorbelegt (Zeitstempel der Erfassung)."
+    },
+    "Website-Inhalte": {
+      "placeholders_set": 14,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Konfigurationsseite für Web-Präsenz (Texte, Kontakt, Adresse, Social Media). Anzahl Plätze ist reine Admin-Config, keine Berechnung. Keine Datumsfelder, keine Preisfelder, keine dynamischen Berechnungen."
+    }
+  }
+}
