@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Besitzer": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Kontakt, Adresse) – keine Geschäftslogik oder Berechnungen möglich"
+    },
+    "Hundekartei": {
+      "placeholders_set": 9,
+      "defaults_keys": ["impfstatus"],
+      "computed_keys": [],
+      "reason": "Tierstammsatz mit applookup auf Besitzer (kein Preis-Target) – nur Default für Impfstatus, keine Berechnungen"
+    },
+    "Belegung & Buchungen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["status"],
+      "computed_keys": ["_belegung_dauer_nächte"],
+      "reason": "Aufenthalts-Entity (Datumspaar anreisedatum/abreisedatum) – virtuelle Dauer als Computed für Aggregat-Anzeige, Status-Default auf 'Aktiv'"
+    },
+    "Buchungsanfragen": {
+      "placeholders_set": 12,
+      "defaults_keys": ["anfrage_status"],
+      "computed_keys": ["_anfrage_dauer_nächte"],
+      "reason": "Anfrage-Form mit Datumspaar (wunsch_anreise/wunsch_abreise) – virtuelle Dauer als Computed, Status-Default auf 'Neu' für Anfrage-Tracking"
+    },
+    "Pfoten-Porträt": {
+      "placeholders_set": 8,
+      "defaults_keys": ["erstellungsdatum"],
+      "computed_keys": [],
+      "reason": "Porträt-/Beschreibungs-Entity – nur Erstellungsdatum als Default (heute), keine Berechnungen"
+    },
+    "Website-Inhalte": {
+      "placeholders_set": 15,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "CMS-Inhalte (Unternehmendaten, Öffnungszeiten, Links) – reine Verwaltungsfelder, keine Geschäftslogik"
+    }
+  }
+}

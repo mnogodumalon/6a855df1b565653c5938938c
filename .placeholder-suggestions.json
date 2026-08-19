@@ -1,0 +1,72 @@
+{
+  "BesitzerDialog.tsx": {
+    "vorname": "z. B. Anna",
+    "nachname": "z. B. Schmidt",
+    "email": "z. B. anna@beispiel.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Kontakt-Vorlieben, Allergien..."
+  },
+  "HundekarteiDialog.tsx": {
+    "besitzer": "Besitzer wählen",
+    "impfstatus": "z. B. Vollständig geimpft",
+    "gesundheitshinweise": "Erkrankungen, Allergien, Medikamente...",
+    "fuetterungshinweise": "Fütterungsplan, Lieblingsfutter, Unverträglichkeiten...",
+    "name": "z. B. Max",
+    "rasse": "z. B. Labrador Retriever",
+    "geburtsdatum": "Wann wurde der Hund geboren?",
+    "geschlecht": "Männlich, Weiblich oder Unbekannt",
+    "gewicht_kg": "z. B. 28"
+  },
+  "BelegungBuchungenDialog.tsx": {
+    "hund": "Welcher Hund kommt?",
+    "besitzer": "Besitzer automatisch aus Hund",
+    "anreisedatum": "Wann kommt der Hund an?",
+    "abreisedatum": "Wann wird der Hund abgeholt?",
+    "platznummer": "Welcher Platz?",
+    "status": "z. B. Aktiv, Abgeschlossen",
+    "preis_euro": "z. B. 99,50",
+    "notizen": "Spezielle Wünsche, Fütterung, Verhalten..."
+  },
+  "BuchungsanfragenDialog.tsx": {
+    "interessent_vorname": "z. B. Michael",
+    "interessent_nachname": "z. B. Müller",
+    "interessent_email": "z. B. michael@beispiel.de",
+    "interessent_telefon": "z. B. +49 30 123456",
+    "hund_name": "z. B. Bruno",
+    "hund_rasse": "z. B. Dackel",
+    "hund_groesse": "Klein, Mittel oder Groß",
+    "wunsch_anreise": "Wann soll es losgehen?",
+    "wunsch_abreise": "Wann soll der Hund zurück?",
+    "nachricht": "Besonderheiten, Wünsche, Fragen...",
+    "anfrage_status": "z. B. Neu, Bestätigt"
+  },
+  "PfotenPortraetDialog.tsx": {
+    "hund": "Welcher Hund wird porträtiert?",
+    "besitzer": "Besitzer (optional)",
+    "titel": "z. B. Max – unser Sommerheld",
+    "widmung": "Persönliche Nachricht für die Familie...",
+    "charakterbeschreibung": "Persönlichkeit, Gewohnheiten, Besonderheiten...",
+    "lieblingsaktivitaet": "z. B. Ballspielen, Schwimmen",
+    "besondere_momente": "Lustige, rührende oder bemerkenswerte Erlebnisse..."
+  },
+  "WebsiteInhalteDialog.tsx": {
+    "unternehmensname": "z. B. Tante Tinas Hundepension",
+    "slogan": "z. B. Zuhause für dein liebes Tier",
+    "beschreibung": "Dein Angebot in wenigen Sätzen...",
+    "anzahl_plaetze": "z. B. 8",
+    "leistungen": "Eine Leistung pro Zeile – z. B. Tagesausflüge, Einzelfütterung, Medikamentengabe",
+    "oeffnungszeiten": "Pro Tag eine Zeile – z. B. Mo–Fr 09:00–18:00, Sa 09:00–14:00",
+    "telefon": "z. B. +49 30 123456",
+    "email": "z. B. info@hundepension.de",
+    "website_url": "z. B. https://hundepension.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "instagram": "z. B. https://instagram.com/tante_tinas",
+    "facebook": "z. B. https://facebook.com/hundepensiontina"
+  }
+}

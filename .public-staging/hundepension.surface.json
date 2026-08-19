@@ -1,0 +1,31 @@
+{
+  "slug": "hundepension",
+  "component": "Website",
+  "title": "Hundepension",
+  "endpoints": [
+    {
+      "entity": "website_inhalte",
+      "op": "list",
+      "fields": [
+        "unternehmensname",
+        "slogan",
+        "beschreibung",
+        "anzahl_plaetze",
+        "leistungen",
+        "oeffnungszeiten",
+        "telefon",
+        "email",
+        "website_url",
+        "strasse",
+        "hausnummer",
+        "plz",
+        "ort",
+        "galerie",
+        "instagram",
+        "facebook"
+      ],
+      "scope_description": "zeigt den einzigen Website-Inhalte-Datensatz für alle Besucher",
+      "max_records": 1
+    }
+  ]
+}
