@@ -340,7 +340,7 @@ export default function HundepensionWebsite() {
                       className="flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-xl px-4 py-3 transition-colors text-sm font-medium"
                     >
                       <IconBrandInstagram size={18} className="text-pink-400" />
-                      Instagram
+                      {tx('Instagram')}
                     </a>
                   )}
                   {f.facebook && (
@@ -351,7 +351,7 @@ export default function HundepensionWebsite() {
                       className="flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-xl px-4 py-3 transition-colors text-sm font-medium"
                     >
                       <IconBrandFacebook size={18} className="text-blue-400" />
-                      Facebook
+                      {tx('Facebook')}
                     </a>
                   )}
                 </div>
@@ -364,7 +364,7 @@ export default function HundepensionWebsite() {
                 <iframe
                   title={tx('Standort auf der Karte')}
                   className="w-full h-full min-h-[280px] border-0"
-                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${f.standort.long - 0.01},${f.standort.lat - 0.007},${f.standort.long + 0.01},${f.standort.lat + 0.007}&layer=mapnik&marker=${f.standort.lat},${f.standort.long}`}
+                  src={tx`https://www.openstreetmap.org/export/embed.html?bbox=${f.standort.long - 0.01},${f.standort.lat - 0.007},${f.standort.long + 0.01},${f.standort.lat + 0.007}&layer=mapnik&marker=${f.standort.lat},${f.standort.long}`}
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
