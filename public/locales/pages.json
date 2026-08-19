@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "en": {
+      " — Wunschtermin {0}.": " — Requested date {0}.",
+      "Abreise": "Departure",
+      "Abreisen heute": "Departures Today",
+      "Anfrage bestätigen": "Confirm Request",
+      "Anfrage von {0} abgelehnt.": "Request from {0} declined.",
+      "Anfrage von {0} bestätigt.": "Request from {0} confirmed.",
+      "Anreise": "Arrival",
+      "Anreisen heute": "Arrivals Today",
+      "Aufenthaltsdauer angepasst.": "Stay duration adjusted.",
+      "Ausgecheckt": "Checked Out",
+      "Belegt heute": "Occupied Today",
+      "Bestätigen": "Confirm",
+      "Buchung": "Booking",
+      "Buchung anlegen": "Create Booking",
+      "Buchung verschoben.": "Booking rescheduled.",
+      "Eingecheckt": "Checked In",
+      "Erste Buchung erfassen": "Create First Booking",
+      "Heute": "Today",
+      "Heute sind keine An- oder Abreisen geplant — die Pension ist ruhig.": "No arrivals or departures scheduled for today — the facility is quiet.",
+      "Heute sind keine An- oder Abreisen geplant.": "No arrivals or departures scheduled for today.",
+      "Hund": "Dog",
+      "Keine offenen Anfragen — alle wurden bearbeitet.": "No open requests — all have been processed.",
+      "Lege deine erste Buchung an und behalte den Überblick über alle Aufenthalte.": "Create your first booking and keep track of all stays.",
+      "Neu": "New",
+      "Neue Anfragen": "New Requests",
+      "Neue Buchung": "New Booking",
+      "Platz bereits belegt durch {0}.": "Spot already occupied by {0}.",
+      "Unbekannter Hund": "Unknown Dog",
+      "Willkommen in deiner Hundepension!": "Welcome to your dog boarding facility!",
+      "eine andere Buchung": "another booking",
+      "{0} hat eine Buchungsanfrage gestellt": "{0} has submitted a booking request",
+      "{0} neue Buchungsanfragen warten auf Bearbeitung": "{0} new booking requests are awaiting processing",
+      "{0} reist heute ab.": "{0} is departing today.",
+      "{0} reist heute an.": "{0} is arriving today.",
+      "{0} von 12 Plätzen belegt.": "{0} of 12 spots occupied."
+    }
+  },
+  "v": 1
+}

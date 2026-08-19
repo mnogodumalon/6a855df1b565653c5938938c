@@ -1,0 +1,73 @@
+{
+  "BesitzerDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "email": "z. B. max@beispiel.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "notizen": "Allergien, Versicherung, besondere Wünsche..."
+  },
+  "HundekarteiDialog.tsx": {
+    "besitzer": "Welcher Besitzer?",
+    "impfstatus": "z. B. Vollständig geimpft",
+    "gesundheitshinweise": "Bekannte Krankheiten, Verletzungen, Allergien...",
+    "fuetterungshinweise": "Fütterungsart, Portionen, spezielle Diät...",
+    "name": "z. B. Rex",
+    "rasse": "z. B. Labrador",
+    "geburtsdatum": "Wann wurde der Hund geboren?",
+    "geschlecht": "Geschlecht auswählen",
+    "gewicht_kg": "z. B. 35,5"
+  },
+  "BelegungBuchungenDialog.tsx": {
+    "hund": "Welcher Hund kommt?",
+    "besitzer": "Optional: Wer ist der Besitzer?",
+    "anreisedatum": "Wann kommt der Hund an?",
+    "abreisedatum": "Wann wird der Hund abgeholt?",
+    "platznummer": "Welcher Platz?",
+    "status": "z. B. Aktiv",
+    "preis_euro": "z. B. 45,00",
+    "notizen": "Besondere Wünsche, Fütterung, Verhalten..."
+  },
+  "BuchungsanfragenDialog.tsx": {
+    "interessent_vorname": "z. B. Anna",
+    "interessent_nachname": "z. B. Schmidt",
+    "interessent_email": "z. B. anna@beispiel.de",
+    "interessent_telefon": "z. B. 030 123456",
+    "hund_name": "z. B. Luna",
+    "hund_rasse": "z. B. Französische Bulldogge",
+    "hund_groesse": "Wähle die Größe",
+    "wunsch_anreise": "Gewünschtes Anreisedatum",
+    "wunsch_abreise": "Gewünschtes Abreisedatum",
+    "nachricht": "Besonderheiten, Fragen zum Aufenthalt...",
+    "anfrage_status": "z. B. Neu"
+  },
+  "PfotenPortraetDialog.tsx": {
+    "hund": "Welcher Hund wird porträtiert?",
+    "besitzer": "Optional: Besitzer des Hundes",
+    "titel": "z. B. 'Rex – der Abenteurer'",
+    "widmung": "Persönliche Nachricht für den Besitzer...",
+    "charakterbeschreibung": "Wie ist die Persönlichkeit des Hundes?",
+    "lieblingsaktivitaet": "z. B. Ballspielen, Schwimmen",
+    "besondere_momente": "Denkwürdige Erlebnisse im Aufenthalt...",
+    "erstellungsdatum": "Wann wurde das Porträt erstellt?"
+  },
+  "WebsiteInhalteDialog.tsx": {
+    "unternehmensname": "z. B. Pfoten Pension Schmidt",
+    "slogan": "z. B. 'Wo sich jeder Hund wohlfühlt'",
+    "beschreibung": "Was macht deine Hundepension aus?",
+    "anzahl_plaetze": "z. B. 8",
+    "leistungen": "Eine Leistung pro Zeile: Spielbetreuung, Fütterung, Spaziergang...",
+    "oeffnungszeiten": "Eine Zeile pro Tag: Mo–Fr 8–18 Uhr, Sa 9–17 Uhr...",
+    "telefon": "z. B. 030 123456",
+    "email": "z. B. info@pfoten-pension.de",
+    "website_url": "z. B. https://pfoten-pension.de",
+    "strasse": "z. B. Grünestraße",
+    "hausnummer": "z. B. 99",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "instagram": "z. B. @pfoten_pension",
+    "facebook": "z. B. facebook.com/pfoten-pension"
+  }
+}

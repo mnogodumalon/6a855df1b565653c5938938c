@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Besitzer": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Kontaktdaten-Stammdaten — keine berechenbaren Felder, keine Datumskombinationen, keine applookups mit Preis-Targets"
+    },
+    "Hundekartei": {
+      "placeholders_set": 9,
+      "defaults_keys": ["impfstatus"],
+      "computed_keys": [],
+      "reason": "Hund-Stammdaten mit Applookup auf Besitzer (kein Preis-Target) und einzelnem Geburtsdatum — kein Datumspaar, keine berechenbaren Felder"
+    },
+    "Belegung & Buchungen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["anreisedatum", "abreisedatum", "status"],
+      "computed_keys": ["_aufenthalt_dauer_nächte"],
+      "reason": "Aufenthalts-Buchung mit Datumspaar (anreise/abreise) — virtueller Dauer-Key berechnet die Aufenthaltsanzahl als Hinweis, kein Preis-applookup vorhanden daher kein Gesamtkosten-Computed"
+    },
+    "Buchungsanfragen": {
+      "placeholders_set": 11,
+      "defaults_keys": ["anfrage_status"],
+      "computed_keys": ["_anfrage_dauer_nächte"],
+      "reason": "Anfrage-Entity mit Datumspaar (wunsch_anreise/abreise) — virtueller Dauer-Key für Anzeige, Status-Default 'Neu', keine Preise/Kosten vorhanden"
+    },
+    "Pfoten-Porträt": {
+      "placeholders_set": 8,
+      "defaults_keys": ["erstellungsdatum"],
+      "computed_keys": [],
+      "reason": "Portfolio-Entity für Hundeporträts — ein einzelnes date-Feld (erstellungsdatum) und Text/Applookup-Felder, keine Berechnungen nötig"
+    },
+    "Website-Inhalte": {
+      "placeholders_set": 15,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Unternehmensdaten für Website-Darstellung — ein einzelnes number-Feld (anzahl_plaetze) ist Stammdatum, keine berechenbaren Aggregationen, keine Datumskombinationen"
+    }
+  }
+}
