@@ -197,11 +197,11 @@ export default function Website() {
               </p>
             </div>
 
-            {data?.anzahl_plaetze !== null && (
+            {data?.anzahl_plaetze != null && (
               <div className="flex justify-center mb-10">
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl px-10 py-6 text-center">
                   <div className="text-5xl font-bold text-amber-600 mb-1">
-                    {data.anzahl_plaetze}
+                    {data?.anzahl_plaetze}
                   </div>
                   <div className="text-gray-600 font-medium">
                     {tx('verfügbare Plätze')}
@@ -413,7 +413,7 @@ export default function Website() {
                       className="flex items-center gap-2 bg-gradient-to-br from-pink-500 to-purple-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-opacity"
                     >
                       <IconBrandInstagram size={16} />
-                      Instagram
+                      {tx('Instagram')}
                     </a>
                   )}
                   {data.facebook && (
@@ -424,7 +424,7 @@ export default function Website() {
                       className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-opacity"
                     >
                       <IconBrandFacebook size={16} />
-                      Facebook
+                      {tx('Facebook')}
                     </a>
                   )}
                 </div>

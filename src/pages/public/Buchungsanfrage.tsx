@@ -11,12 +11,6 @@ import { IconPaw, IconCheck, IconAlertCircle, IconLoader2 } from '@tabler/icons-
 
 const SLUG = 'buchungsanfrage';
 
-const GROESSE_OPTIONS = [
-  { key: 'klein', label: tx('Klein (bis 10 kg)') },
-  { key: 'mittel', label: tx('Mittel (10–25 kg)') },
-  { key: 'gross', label: tx('Groß (über 25 kg)') },
-];
-
 interface FormState {
   interessent_vorname: string;
   interessent_nachname: string;
@@ -44,6 +38,12 @@ const EMPTY_FORM: FormState = {
 };
 
 export default function Buchungsanfrage() {
+  const GROESSE_OPTIONS = [
+  { key: 'klein', label: tx('Klein (bis 10 kg)') },
+  { key: 'mittel', label: tx('Mittel (10–25 kg)') },
+  { key: 'gross', label: tx('Groß (über 25 kg)') },
+];
+
   const [cfg, setCfg] = useState<PublicPagesConfig | null>(null);
   const [page, setPage] = useState<PublicPageConfig | null>(null);
   const [configLoading, setConfigLoading] = useState(true);
