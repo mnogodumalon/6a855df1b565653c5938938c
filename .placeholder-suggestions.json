@@ -1,0 +1,73 @@
+{
+  "BesitzerDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Allergien, Vorlieben..."
+  },
+  "HundekarteiDialog.tsx": {
+    "besitzer": "Besitzer wählen",
+    "name": "z. B. Bello",
+    "impfstatus": "z. B. Vollständig geimpft",
+    "gesundheitshinweise": "Erkrankungen, Allergien, Medikamente...",
+    "fuetterungshinweise": "Futter-Art, Portionsgröße, Besonderheiten...",
+    "rasse": "z. B. Labrador Retriever",
+    "geburtsdatum": "Wann wurde der Hund geboren?",
+    "geschlecht": "Geschlecht wählen",
+    "gewicht_kg": "z. B. 28,5"
+  },
+  "BelegungBuchungenDialog.tsx": {
+    "hund": "Welcher Hund kommt?",
+    "besitzer": "Besitzer (optional)",
+    "anreisedatum": "Ankunftstag",
+    "abreisedatum": "Abreisetag",
+    "platznummer": "z. B. Platz 1",
+    "status": "Status wählen",
+    "preis_euro": "z. B. 99,50",
+    "notizen": "Besonderheiten, Fütterungsplan, Aktivitäten..."
+  },
+  "BuchungsanfragenDialog.tsx": {
+    "interessent_vorname": "z. B. Anna",
+    "interessent_nachname": "z. B. Schmidt",
+    "interessent_email": "z. B. anna@example.com",
+    "interessent_telefon": "z. B. +49 30 12345678",
+    "hund_name": "z. B. Rex",
+    "hund_rasse": "z. B. Schäferhund",
+    "hund_groesse": "Größenklasse wählen",
+    "wunsch_anreise": "Gewünschter Ankunftstag",
+    "wunsch_abreise": "Gewünschter Abreisetag",
+    "nachricht": "Spezielle Wünsche, Hinweise, Fragen...",
+    "anfrage_status": "Status wählen"
+  },
+  "PfotenPortraetDialog.tsx": {
+    "hund": "Welcher Hund?",
+    "besitzer": "Besitzer (optional)",
+    "titel": "z. B. Bello – unser Held",
+    "widmung": "Persönliche Botschaft für den Besitzer...",
+    "charakterbeschreibung": "Temperament, Besonderheiten, Stärken...",
+    "lieblingsaktivitaet": "z. B. Ballspiel im Park",
+    "besondere_momente": "Lustige oder rührende Momente vom Aufenthalt...",
+    "erstellungsdatum": "Porträt erstellt am"
+  },
+  "WebsiteInhalteDialog.tsx": {
+    "unternehmensname": "z. B. PfotenPension München",
+    "slogan": "z. B. Hundepension mit Liebe",
+    "beschreibung": "Kurzbeschreibung des Angebots für Besucher...",
+    "anzahl_plaetze": "z. B. 8",
+    "leistungen": "Eine Leistung pro Zeile (z. B. Tagesbetreuung, Spaziergang, Spiel)",
+    "oeffnungszeiten": "Eine Zeitangabe pro Zeile (z. B. Mo–Fr 8–19 Uhr)",
+    "telefon": "z. B. +49 30 12345678",
+    "email": "z. B. kontakt@example.com",
+    "website_url": "z. B. https://example.com",
+    "strasse": "z. B. Hundstraße",
+    "hausnummer": "z. B. 1",
+    "plz": "z. B. 80339",
+    "ort": "z. B. München",
+    "instagram": "z. B. https://instagram.com/hundepension",
+    "facebook": "z. B. https://facebook.com/hundepension"
+  }
+}

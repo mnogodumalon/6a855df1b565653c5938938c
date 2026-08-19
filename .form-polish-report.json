@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Besitzer": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Kontaktinformationen), nichts berechenbar"
+    },
+    "Hundekartei": {
+      "placeholders_set": 9,
+      "defaults_keys": ["impfstatus"],
+      "computed_keys": [],
+      "reason": "Tierstammdaten, keine signifikanten Berechnungen (Alter aus Geburtsdatum nur virtuell, zu komplex für Runtime-Kontext)"
+    },
+    "Belegung & Buchungen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["anreisedatum", "abreisedatum", "status"],
+      "computed_keys": ["_aufenthalt_dauer_nächte"],
+      "reason": "Zeitbasierte Buchung mit Datumspaar → Dauer berechnen; Preis ist manueller Input (kein Tagespreis im Hund-Target)"
+    },
+    "Buchungsanfragen": {
+      "placeholders_set": 11,
+      "defaults_keys": ["anfrage_status"],
+      "computed_keys": ["_anfrage_dauer_nächte"],
+      "reason": "Anfrage-Entity mit Datumspaar → Dauer berechnen; Status mit Default 'Neu'"
+    },
+    "Pfoten-Porträt": {
+      "placeholders_set": 8,
+      "defaults_keys": ["erstellungsdatum"],
+      "computed_keys": [],
+      "reason": "Dokumentation mit Textfeldern, kein Numerik, kein Preis"
+    },
+    "Website-Inhalte": {
+      "placeholders_set": 14,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Stammdaten für Website (Unternehmensname, Kontakt, Adresse, Social Media), keine Berechnungen"
+    }
+  }
+}
