@@ -1,0 +1,45 @@
+Legend: `!` after a field name = required (from the app's base view) —
+a step form that writes such a field must not submit it empty.
+A lookup field lists its keys after the type (`[lookup/select: a|b|c]`);
+these are the ONLY valid write values — quote them into the brief verbatim,
+the matching labels come from LOOKUP_OPTIONS at runtime.
+`⚙` lists the service methods for that entity, spelled exactly.
+`✚` lists the entity's Enriched* fields and its enrich() signature,
+spelled exactly — quote both verbatim; an invented enriched field or
+a missing map is a guaranteed type error.
+
+Modules — copy these paths verbatim into a subagent brief:
+  @/types/app                            entity types, APP_IDS, LOOKUP_OPTIONS
+  @/types/enriched                       EnrichedHundekartei, EnrichedBelegungBuchungen, EnrichedPfotenPortraet — the COMPLETE list, no other Enriched* type exists
+  @/lib/enrich                           the enrich functions — exact fields and signatures on the `✚` line of each entity below; every listed map is REQUIRED, and no other enriched field exists
+  @/services/livingAppsService           LivingAppsService, createRecordUrl, extractRecordId
+  @/hooks/useDashboardData               useDashboardData — the RAW arrays (one per entity, camelCase), their setters, loading, error, fetchAll + besitzerMap, hundekarteiMap; it carries NO enriched arrays — build those with the `✚` call below
+  @/lib/formatters                       lookupKey, formatDate
+  @/components/blocks/IntentWizardShell  IntentWizardShell
+  @/components/blocks/EntitySelectStep   EntitySelectStep
+  @/components/blocks/StatusBadge        StatusBadge, getStatusColor
+  @/components/blocks/BudgetTracker      BudgetTracker
+There is NO `@/config/appIds`, no `@/config/lookupOptions` and no
+`@/lib/urlUtils` — APP_IDS and LOOKUP_OPTIONS come from `@/types/app`,
+createRecordUrl from the service. Note the lowercase `l` in the service path.
+
+- Besitzer (besitzer): vorname![string/text], nachname![string/text], telefon[string/tel], email[string/email], strasse[string/text], hausnummer[string/text], plz[string/text], ort[string/text], notizen[string/textarea]
+  ⚙ getBesitzer() · getBesitzerEntry(id) · createBesitzerEntry(fields) · updateBesitzerEntry(id, fields) · deleteBesitzerEntry(id)
+- Hundekartei (hundekartei): foto[file], besitzer![applookup/select], impfstatus[lookup/select: vollstaendig|teilweise|nicht_geimpft|unbekannt], gesundheitshinweise[string/textarea], fuetterungshinweise[string/textarea], name![string/text], rasse[string/text], geburtsdatum[date/date], geschlecht[lookup/radio: maennlich|weiblich|unbekannt], gewicht_kg[number]
+  ⚙ getHundekartei() · getHundekarteiEntry(id) · createHundekarteiEntry(fields) · updateHundekarteiEntry(id, fields) · deleteHundekarteiEntry(id)
+  ✚ EnrichedHundekartei adds ONLY besitzerName — via enrichHundekartei(hundekartei, { besitzerMap }), all maps required
+  → besitzer links to app_id 6a855dc207a2aad7b8fd68e4
+- Belegung & Buchungen (belegung_buchungen): hund![applookup/select], besitzer[applookup/select], anreisedatum![date/date], abreisedatum![date/date], platznummer![lookup/select: platz_1|platz_2|platz_3|platz_4|platz_5|platz_6|platz_7|platz_8|platz_9|platz_10|platz_11|platz_12], status![lookup/select: aktiv|abgeschlossen|storniert], preis_euro[number], notizen[string/textarea]
+  ⚙ getBelegungBuchungen() · getBelegungBuchungenEntry(id) · createBelegungBuchungenEntry(fields) · updateBelegungBuchungenEntry(id, fields) · deleteBelegungBuchungenEntry(id)
+  ✚ EnrichedBelegungBuchungen adds ONLY hundName, besitzerName — via enrichBelegungBuchungen(belegungBuchungen, { hundekarteiMap, besitzerMap }), all maps required
+  → hund links to app_id 6a855dc86f78df9f0a5b088f
+  → besitzer links to app_id 6a855dc207a2aad7b8fd68e4
+- Buchungsanfragen (buchungsanfragen): interessent_vorname![string/text], interessent_nachname![string/text], interessent_email![string/email], interessent_telefon[string/tel], hund_name![string/text], hund_rasse[string/text], hund_groesse[lookup/radio: klein|mittel|gross], wunsch_anreise![date/date], wunsch_abreise![date/date], nachricht[string/textarea], anfrage_status[lookup/select: neu|bestaetigt|abgelehnt]
+  ⚙ getBuchungsanfragen() · getBuchungsanfragenEntry(id) · createBuchungsanfragenEntry(fields) · updateBuchungsanfragenEntry(id, fields) · deleteBuchungsanfragenEntry(id)
+- Pfoten-Porträt (pfoten_portraet): hund![applookup/select], besitzer[applookup/select], titel![string/text], widmung[string/textarea], charakterbeschreibung[string/textarea], lieblingsaktivitaet[string/text], besondere_momente[string/textarea], portraet_foto[file], erstellungsdatum[date/date]
+  ⚙ getPfotenPortraet() · getPfotenPortraetEntry(id) · createPfotenPortraetEntry(fields) · updatePfotenPortraetEntry(id, fields) · deletePfotenPortraetEntry(id)
+  ✚ EnrichedPfotenPortraet adds ONLY hundName, besitzerName — via enrichPfotenPortraet(pfotenPortraet, { hundekarteiMap, besitzerMap }), all maps required
+  → hund links to app_id 6a855dc86f78df9f0a5b088f
+  → besitzer links to app_id 6a855dc207a2aad7b8fd68e4
+- Website-Inhalte (website_inhalte): unternehmensname![string/text], slogan[string/text], beschreibung[string/textarea], anzahl_plaetze[number], leistungen[string/textarea], oeffnungszeiten[string/textarea], telefon[string/tel], email[string/email], website_url[string/url], strasse[string/text], hausnummer[string/text], plz[string/text], ort[string/text], standort[geo], galerie[file], instagram[string/url], facebook[string/url]
+  ⚙ getWebsiteInhalte() · getWebsiteInhalteEntry(id) · createWebsiteInhalteEntry(fields) · updateWebsiteInhalteEntry(id, fields) · deleteWebsiteInhalteEntry(id)

@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Besitzer": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten-Entity (Vorname, Nachname, Kontakt, Adresse, Notizen). Keine Number-Felder mit Berechnungs-Semantik, kein applookup auf Preis-Targets, keine Date-Paare. Nur fieldOrder optimiert (Adresse als Paar PLZ+Ort, Kontakt gruppiert)."
+    },
+    "Hundekartei": {
+      "placeholders_set": 10,
+      "defaults_keys": ["impfstatus"],
+      "computed_keys": [],
+      "reason": "Hundeprofil mit applookup auf Besitzer (kein Preis), ein Gewicht-Number-Feld (gemessen, nicht berecnet), ein Datum (Geburt), neuer Impfstatus-Lookup. Kein computed sinnvoll. Default für Impfstatus auf 'unbekannt' (neutraler Start)."
+    },
+    "Belegung & Buchungen": {
+      "placeholders_set": 7,
+      "defaults_keys": ["anreisedatum", "abreisedatum", "status"],
+      "computed_keys": ["_buchung_dauer_nächte"],
+      "reason": "Aufenthalts-Buchungs-Entity mit Datumspaar (Anreise/Abreise) und statischem Preis-Number-Feld. Keine applookup auf Preis-Targets vorhanden (Hund hat nur Gewicht). Dauer-Berechnung (dateDiff) als virtuelles Feld `_buchung_dauer_nächte` für die Übersicht-Anzeige. Defaults für Termine (heute, +3 Tage) und Status (aktiv). Kein Total-Computed weil kein Backend-Preis-Formula nötig (User trägt Preis manuell ein)."
+    },
+    "Buchungsanfragen": {
+      "placeholders_set": 10,
+      "defaults_keys": ["wunsch_anreise", "wunsch_abreise", "anfrage_status"],
+      "computed_keys": ["_anfrage_dauer_nächte"],
+      "reason": "Anfrage-Entity mit Wunsch-Datumspaar (analog Buchungen). Kein Preis-Feld vorhanden. Dauer berechnen als virtuelles Feld `_anfrage_dauer_nächte` sinnvoll (User sieht gewünschte Aufenthaltslänge ohne manuell zu zählen). Status-Default auf 'neu'. Keine weitere Berechnung."
+    },
+    "Pfoten-Porträt": {
+      "placeholders_set": 8,
+      "defaults_keys": ["erstellungsdatum"],
+      "computed_keys": [],
+      "reason": "Gedenkseite/Porträt für Hunde. Applookup auf Hundekartei und Besitzer (keine Preis-Targets). Nur Textfelder und ein Datum. Kein Number-Feld, keine Berechnung. Default für Erstellungsdatum auf heute."
+    },
+    "Website-Inhalte": {
+      "placeholders_set": 15,
+      "defaults_keys": ["anzahl_plaetze"],
+      "computed_keys": [],
+      "reason": "Statische Website-Konfiguration. Ein Number-Feld `anzahl_plaetze` (Kapazität). Default auf 8 Plätze (typische kleine Pension). Keine Berechnung. Fieldorder optimiert: Unternehmensname zuerst, Beschreibung, Leistungen (als Aufzählung — mit Hinweis 'eine pro Zeile'), Öffnungszeiten (ebenso), Kontakt, Adressen (PLZ+Ort als Paar), Social Media zum Ende."
+    }
+  }
+}
