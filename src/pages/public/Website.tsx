@@ -285,7 +285,7 @@ export default function Website() {
                 className="flex items-center gap-2 text-gray-300 hover:text-pink-400 transition-colors font-medium"
               >
                 <IconBrandInstagram size={22} stroke={1.5} />
-                Instagram
+                {tx('Instagram')}
               </a>
             )}
             {info.facebook && (
@@ -296,7 +296,7 @@ export default function Website() {
                 className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors font-medium"
               >
                 <IconBrandFacebook size={22} stroke={1.5} />
-                Facebook
+                {tx('Facebook')}
               </a>
             )}
           </div>

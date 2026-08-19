@@ -43,12 +43,6 @@ const INITIAL: FormState = {
   nachricht: '',
 };
 
-const GROESSE_OPTIONS = [
-  { key: 'klein', label: tx('Klein (bis 10 kg)') },
-  { key: 'mittel', label: tx('Mittel (10–25 kg)') },
-  { key: 'gross', label: tx('Groß (über 25 kg)') },
-];
-
 function StepIndicator({ step }: { step: Step }) {
   const steps = [
     { num: 1, icon: <IconUser size={16} />, label: tx('Kontakt') },
@@ -126,6 +120,12 @@ function Input({
 }
 
 export default function Buchungsanfrage() {
+  const GROESSE_OPTIONS = [
+  { key: 'klein', label: tx('Klein (bis 10 kg)') },
+  { key: 'mittel', label: tx('Mittel (10–25 kg)') },
+  { key: 'gross', label: tx('Groß (über 25 kg)') },
+];
+
   const [cfg, setCfg] = useState<PublicPagesConfig | null>(null);
   const [page, setPage] = useState<PublicPageConfig | null>(null);
   const [loading, setLoading] = useState(true);
@@ -157,7 +157,7 @@ export default function Buchungsanfrage() {
     challengePrepped.current = true;
     const ep = page.endpoints?.find(e => e.op === 'create');
     if (ep?.app_id) {
-      prepareChallenge(cfg, page, 'POST', `/apps/${ep.app_id}/records`).catch(() => {});
+      void prepareChallenge(cfg, page, 'POST', `/apps/${ep.app_id}/records`);
     }
   };
 
