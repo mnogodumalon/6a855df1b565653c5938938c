@@ -52,21 +52,22 @@ export default function Website() {
           const records = Object.values(result);
           if (records.length > 0) {
             const r = records[0];
+            const f = r.fields as Record<string, unknown>;
             setContent({
               id: r.id,
-              unternehmensname: r.fields.unternehmensname ?? null,
-              slogan: r.fields.slogan ?? null,
-              beschreibung: r.fields.beschreibung ?? null,
-              anzahl_plaetze: r.fields.anzahl_plaetze ?? null,
-              leistungen: r.fields.leistungen ?? null,
-              oeffnungszeiten: r.fields.oeffnungszeiten ?? null,
-              telefon: r.fields.telefon ?? null,
-              email: r.fields.email ?? null,
-              strasse: r.fields.strasse ?? null,
-              hausnummer: r.fields.hausnummer ?? null,
-              plz: r.fields.plz ?? null,
-              ort: r.fields.ort ?? null,
-              galerie: r.fields.galerie ?? null,
+              unternehmensname: (f.unternehmensname as string) ?? null,
+              slogan: (f.slogan as string) ?? null,
+              beschreibung: (f.beschreibung as string) ?? null,
+              anzahl_plaetze: (f.anzahl_plaetze as number) ?? null,
+              leistungen: (f.leistungen as string) ?? null,
+              oeffnungszeiten: (f.oeffnungszeiten as string) ?? null,
+              telefon: (f.telefon as string) ?? null,
+              email: (f.email as string) ?? null,
+              strasse: (f.strasse as string) ?? null,
+              hausnummer: (f.hausnummer as string) ?? null,
+              plz: (f.plz as string) ?? null,
+              ort: (f.ort as string) ?? null,
+              galerie: (f.galerie as string) ?? null,
             });
           }
         }

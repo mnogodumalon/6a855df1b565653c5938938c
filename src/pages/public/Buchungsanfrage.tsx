@@ -13,12 +13,6 @@ import { tx } from '@/i18n';
 import { IconPaw, IconCheck, IconAlertCircle } from '@tabler/icons-react';
 
 // Lookup-Optionen für hund_groesse (aus app_metadata)
-const GROESSE_OPTIONS = [
-  { key: 'klein', label: tx('Klein (bis 10 kg)') },
-  { key: 'mittel', label: tx('Mittel (10–25 kg)') },
-  { key: 'gross', label: tx('Groß (über 25 kg)') },
-] as const;
-
 type HundGroesse = 'klein' | 'mittel' | 'gross' | '';
 
 interface FormState {
@@ -119,6 +113,12 @@ function validate(form: FormState): Errors {
 }
 
 export default function Buchungsanfrage() {
+  const GROESSE_OPTIONS = [
+  { key: 'klein', label: tx('Klein (bis 10 kg)') },
+  { key: 'mittel', label: tx('Mittel (10–25 kg)') },
+  { key: 'gross', label: tx('Groß (über 25 kg)') },
+] as const;
+
   const [cfg, setCfg] = useState<PublicPagesConfig | null>(null);
   const [page, setPage] = useState<PublicPageConfig | null>(null);
   const [loading, setLoading] = useState(true);
@@ -150,7 +150,7 @@ export default function Buchungsanfrage() {
     const ep = page.endpoints?.find(e => e.op === 'create');
     if (!ep) return;
     challengePrepared.current = true;
-    prepareChallenge(cfg, page, 'POST', `/apps/${ep.app_id}/records`).catch(() => {/* silent */});
+    void prepareChallenge(cfg, page, 'POST', `/apps/${ep.app_id}/records`);
   }
 
   function set(field: keyof FormState, value: string) {
