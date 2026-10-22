@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "en": {
+      "Abreise überfällig": "Departure overdue",
+      "Abreisen heute": "Departures today",
+      "Anfrage bearbeiten": "Edit request",
+      "Anreisen heute": "Arrivals today",
+      "Auschecken": "Check out",
+      "Bearbeiten": "Edit",
+      "Buchung": "Booking",
+      "Einchecken": "Check in",
+      "Eingecheckt": "Checked in",
+      "Heute ist ruhig — keine An- oder Abreisen, keine offenen Anfragen.": "Today is quiet — no arrivals or departures, no open requests.",
+      "Heute ist ruhig — {0} wartet auf Antwort zur Anfrage.": "Today is quiet — {0} awaiting reply to request.",
+      "Heute kommen {0} an — {1} reist ab.": "Today {0} arriving — {1} departing.",
+      "Heute kommen {0} an.": "Today {0} arriving.",
+      "Heute reist {0} ab.": "Today {0} departing.",
+      "Heute: An- & Abreisen": "Today: Arrivals & Departures",
+      "Hund": "Dog",
+      "Interessent": "Prospect",
+      "Keine Anreisen oder Abreisen geplant.": "No arrivals or departures scheduled.",
+      "Keine neuen Anfragen — alles beantwortet.": "No new requests — all answered.",
+      "Neue Buchung": "New booking",
+      "Nächste Anreise: {0} — {1}": "Next arrival: {0} — {1}",
+      "Platz bereits belegt von {0}": "Space already occupied by {0}",
+      "Plätze belegt": "Spaces occupied",
+      "Reist heute ab": "Departing today",
+      "Reist heute an": "Arriving today",
+      "einer anderen Buchung": "another booking",
+      "neu": "new",
+      "ohne Platz": "no space",
+      "{0} — verschoben": "{0} — postponed"
+    }
+  },
+  "v": 1
+}

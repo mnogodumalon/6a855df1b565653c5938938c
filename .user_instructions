@@ -1,0 +1,13 @@
+Hundepension „PfotenPension“, Anwendung für das Team und eine öffentliche Seite.
+
+Abläufe:
+1. Neue Buchung: Besitzer wählen oder neu anlegen, Hund wählen oder neu anlegen, Anreise und Abreise, Platz. Ein Platz darf im selben Zeitraum nicht doppelt belegt werden. Status startet als „reserviert“.
+2. Check-in und Check-out: Buchung wählen, Status setzen.
+3. Aufenthaltsporträt erstellen: Hund und Besitzer wählen, Titel, Charakterbeschreibung, Lieblingsaktivität, besondere Momente, Porträtfoto hochladen. Erstellungsdatum ist heute.
+4. Buchungsanfrage bearbeiten: offene Anfrage wählen, annehmen oder ablehnen.
+
+Öffentliche Seite „Reservierungsanfrage“: Interessenten sehen freie und belegte Zeiträume (ohne Namen, ohne Hundedaten) und senden eine Anfrage mit Vorname, Nachname, E-Mail, Telefon, Name und Rasse des Hundes, Größe, Wunsch-Anreise, Wunsch-Abreise und Nachricht. Belegte Zeiträume sind nicht wählbar. Die Anfrage startet als „neu“.
+
+Automatik: Jeden Montag um 7 Uhr ein PDF-Bericht per E-Mail an mich: Anreisen und Abreisen der letzten Woche, neue Buchungsanfragen und ihr Status, neue Aufenthaltsporträts, Auslastung der Plätze.
+
+Bitte genau so umsetzen, keine weiteren Funktionen.
