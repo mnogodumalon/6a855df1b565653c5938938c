@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Aktuell ist kein Gast im Haus — Zeit für Anfragen und Porträts.": "No guests currently in the house — time for inquiries and portraits.",
+      "Alle aktuellen Gäste haben ihr Porträt.": "All current guests have their portrait.",
+      "An- & Abreisen heute und morgen": "Arrivals & departures today and tomorrow",
+      "Anreise": "Arrival",
+      "Aufenthalt verschoben": "Stay rescheduled",
+      "Gast": "Guest",
+      "Gäste ohne Pfoten-Porträt": "Guests without paw portrait",
+      "Heute gehen {0} nach Hause.": "Today {0} going home.",
+      "Heute kommen {0} an, {1} {2} nach Hause.": "Today {0} arriving, {1} {2} going home.",
+      "Heute kommen {0} an.": "Today {0} arriving.",
+      "Impfstatus bei Anreise": "Vaccination status at arrival",
+      "Impfstatus prüfen (7 Tage)": "Check vaccination status (7 days)",
+      "Impfstatus unvollständig": "Vaccination status incomplete",
+      "Interessent": "Prospect",
+      "Keine Anreisen geplant.": "No arrivals scheduled.",
+      "Neue Anfrage von {0} für {1} — Wunsch ab {2}.": "New inquiry from {0} for {1} — preferred start {2}.",
+      "Neuer Aufenthalt": "New stay",
+      "Nächste Anreise: {0} — {1}": "Next arrival: {0} — {1}",
+      "Platz ist in diesem Zeitraum schon an {0} vergeben": "Spot is already assigned to {0} for this period",
+      "Plätze belegt heute": "Spots occupied today",
+      "Porträt anlegen": "Create portrait",
+      "Prüfen & bestätigen": "Review & confirm",
+      "Zu Gast bis {0}": "Staying until {0}",
+      "Zu Gast sind aktuell {0} — keine Anreisen oder Abreisen heute.": "Currently staying: {0} — no arrivals or departures today.",
+      "ein Hund": "a dog",
+      "einen Gast": "a guest",
+      "einen Hund": "a dog",
+      "gehen": "leave",
+      "geht": "leaves",
+      "{0} neue Anfragen warten auf Antwort: {1} — als Nächstes {2} ab {3}.": "{0} new inquiries awaiting reply: {1} — next {2} from {3}."
+    }
+  },
+  "v": 1
+}
