@@ -1,0 +1,37 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Abschließen": "Complete",
+      "Alle Gäste der nächsten 14 Tage sind vollständig geimpft.": "All guests in the next 14 days are fully vaccinated.",
+      "Anfrage bestätigen": "Confirm request",
+      "Anfrage von {0} wartet auf dich.": "Request from {0} is waiting for you.",
+      "Anreise": "Arrival",
+      "Aufenthalt abschließen": "Complete stay",
+      "Aufenthalt planen": "Plan stay",
+      "Aufenthalt verschoben": "Stay rescheduled",
+      "Gast": "Guest",
+      "Gerade ist es ruhig — Zeit für ein neues Pfoten-Porträt.": "Quiet right now — time for a new paw portrait.",
+      "Heute keine Wechsel.": "No changes today.",
+      "Heute kommt {0}": "{0} arrives today",
+      "Heute: An- und Abreisen": "Today: arrivals and departures",
+      "Hund": "Dog",
+      "Hund öffnen": "Open dog",
+      "Impflücke": "Vaccination gap",
+      "Impflücken": "Vaccination gaps",
+      "Impfstatus offen (14 Tage)": "Vaccination status pending (14 days)",
+      "Impfstatus prüfen": "Check vaccination status",
+      "Keine offenen Anfragen — alles beantwortet.": "No open requests — all answered.",
+      "Neue Anfragen": "New requests",
+      "Noch kein Porträt — das erste wartet auf einen Gast.": "No portrait yet — the first one is waiting for a guest.",
+      "Platz bereits belegt von {0}": "Spot already taken by {0}",
+      "Plätze heute belegt": "Spots occupied today",
+      "Prüfen": "Review",
+      "Zu Gast sind {0} — heute keine Wechsel.": "{0} staying with us — no changes today.",
+      "Zuletzt erstellte Porträts": "Recently created portraits",
+      "ab {0}": "from {0}",
+      "{0} geht nach Hause": "{0} goes home"
+    }
+  },
+  "v": 1
+}

@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "language": "de",
+  "understanding": {
+    "summary": "PfotenPension Manager verwaltet Besitzer und ihre Hunde, plant die Aufenthalte auf zwölf Plätzen und hält für jeden Gast ein Pfoten-Porträt mit Foto und kleinen Geschichten fest. Interessenten sehen auf der Website freie Zeiträume und stellen Reservierungsanfragen. Jeden Montag kommt ein Wochenbericht als PDF per E-Mail.",
+    "roles": [
+      "Inhaberin / Inhaber der Hundepension",
+      "Mitarbeitende im Tagesbetrieb",
+      "Interessenten auf der Website"
+    ],
+    "main_tasks": [
+      "Besitzer und Hunde verwalten",
+      "Aufenthalte und Plätze planen",
+      "Buchungsanfragen prüfen und bestätigen",
+      "Pfoten-Porträt für jeden Gast erstellen",
+      "Freie Zeiträume und Anfrageformular auf der Website anbieten",
+      "Wochenbericht jeden Montag erhalten"
+    ],
+    "platform_roles": [
+      {
+        "persona": "Inhaberin / Inhaber der Hundepension",
+        "role": "administrator",
+        "apps": [
+          "besitzer",
+          "hundekartei",
+          "belegung_buchungen",
+          "buchungsanfragen",
+          "pfoten_portraet",
+          "website_inhalte"
+        ]
+      },
+      {
+        "persona": "Mitarbeitende im Tagesbetrieb",
+        "role": "datenverarbeitung",
+        "apps": [
+          "besitzer",
+          "hundekartei",
+          "belegung_buchungen",
+          "buchungsanfragen",
+          "pfoten_portraet"
+        ]
+      }
+    ]
+  },
+  "flows": [
+    {
+      "slug": "aufenthalt-buchen",
+      "label": {
+        "de": "Aufenthalt buchen",
+        "en": "Book a stay"
+      },
+      "description": "Hund wählen, Zeitraum und freien Platz festlegen und die Buchung anlegen, ohne dass ein Platz doppelt belegt wird.",
+      "priority": "must",
+      "writes": [
+        {
+          "entity": "belegung_buchungen",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "hund": "picked",
+            "anreisedatum": "user",
+            "abreisedatum": "user",
+            "platznummer": "user",
+            "status": "fixed:aktiv",
+            "preis_euro": "user",
+            "notizen": "user"
+          },
+          "needs": {}
+        }
+      ],
+      "required": [],
+      "brief": "# Flow `aufenthalt-buchen` — Aufenthalt buchen\nHund wählen, Zeitraum und freien Platz festlegen und die Buchung anlegen, ohne dass ein Platz doppelt belegt wird.\n\n## Your hook — import it, never rebuild what it owns\n`import { useAufenthaltBuchenFlow } from '@/lib/journey/flows/AufenthaltBuchen';` — generated from the Schreibliste below. It OWNS the form(s), one record search per picked field (columns and filter from the plan) and the submit plan with every fixed and derived value. You compose: `flow.forms.<entity>` for <Bound>/<Field>, `{...flow.picks.<field>.select} {...flow.pick('<field>')}` (or `flow.pickMany` for a multi pick) for <EntitySelectStep>, `flow.validateStep(n)` in StepNav.onNext, `flow.submit` + `flow.formList` for SummaryStep/SuccessStep, `flow.reset()`; what the hook does not own reads through its door `flow.port` — availability `useOccupancy(flow.port, '<entity>', { resource })`, a count `useRecordCount(flow.port, …)` — never import servicePort next to the hook. Options: `steps` (field → step), `items` (how a hit reads, per pick: hund), `initial`, `messages`. The hook's docblock in .lane-context.md shows the exact call. Never import servicePort, useStepForm, useJourneySubmit, useRecordSearch or useDashboardData in this page — check-intents refuses a page that uses the hook and any of them.\n\n## Steps (in this order)\n1. Hund aus der Hundekartei wählen\n2. Anreise- und Abreisedatum eingeben\n3. Platz wählen, der im Zeitraum frei ist\n4. Preis eingeben und Buchung speichern\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- creates `belegung_buchungen`:\n    - `hund`: from the record the user picks in this flow\n    - `anreisedatum`: the user enters it (bind it through the layer: form.field/…)\n    - `abreisedatum`: the user enters it (bind it through the layer: form.field/…)\n    - `platznummer`: the user enters it (bind it through the layer: form.field/…)\n    - `status`: fixed value `aktiv` — set it in the plan step's values, never ask\n    - `preis_euro`: the user enters it (bind it through the layer: form.field/…)\n    - `notizen`: the user enters it (bind it through the layer: form.field/…)\n\n## Reads\n- `hundekartei` columns name, rasse, besitzer, impfstatus\n- `belegung_buchungen` columns platznummer, anreisedatum, abreisedatum, status\n\n## Checks BEFORE the write (block the submit with the message when they fail)\n- no_overlap (from=`belegung_buchungen.anreisedatum`, to=`belegung_buchungen.abreisedatum`, resource=`belegung_buchungen.platznummer`) — message: „Dieser Platz ist im gewählten Zeitraum schon belegt.“\n\n## Success page\n- shows: `belegung_buchungen.hund`, `belegung_buchungen.platznummer`, `belegung_buchungen.anreisedatum`\n- next flows to offer: `portraet-erstellen`\n\n## Never write these — another flow or a tool owns them\n- `besitzer.vorname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.nachname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.email` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.telefon` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.name` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.rasse` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.besitzer` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.impfstatus` (owner: intent `anfrage-bestaetigen`)\n- `buchungsanfragen.anfrage_status` (owner: intent `anfrage-bestaetigen`)\n- `pfoten_portraet.hund` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besitzer` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.titel` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.widmung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.charakterbeschreibung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.lieblingsaktivitaet` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besondere_momente` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.portraet_foto` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.erstellungsdatum` (owner: intent `portraet-erstellen`)\n- `belegung_buchungen.besitzer` (owner: tool `buchung-besitzer-setzen`)\n"
+    },
+    {
+      "slug": "anfrage-bestaetigen",
+      "label": {
+        "de": "Anfrage bestätigen",
+        "en": "Confirm inquiry"
+      },
+      "description": "Eine neue Buchungsanfrage prüfen, Besitzer und Hund anlegen, die Buchung eintragen und die Anfrage auf bestätigt setzen.",
+      "priority": "must",
+      "writes": [
+        {
+          "entity": "besitzer",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "vorname": "derived:from_pick:buchungsanfragen.interessent_vorname",
+            "nachname": "derived:from_pick:buchungsanfragen.interessent_nachname",
+            "email": "derived:from_pick:buchungsanfragen.interessent_email",
+            "telefon": "derived:from_pick:buchungsanfragen.interessent_telefon"
+          },
+          "needs": {}
+        },
+        {
+          "entity": "hundekartei",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "name": "derived:from_pick:buchungsanfragen.hund_name",
+            "rasse": "derived:from_pick:buchungsanfragen.hund_rasse",
+            "besitzer": "picked",
+            "impfstatus": "user"
+          },
+          "needs": {}
+        },
+        {
+          "entity": "belegung_buchungen",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "hund": "picked",
+            "anreisedatum": "derived:from_pick:buchungsanfragen.wunsch_anreise",
+            "abreisedatum": "derived:from_pick:buchungsanfragen.wunsch_abreise",
+            "platznummer": "user",
+            "status": "fixed:aktiv",
+            "preis_euro": "user"
+          },
+          "needs": {}
+        },
+        {
+          "entity": "buchungsanfragen",
+          "op": "update",
+          "when": "always",
+          "fields": {
+            "anfrage_status": "fixed:bestaetigt"
+          },
+          "needs": {}
+        }
+      ],
+      "required": [],
+      "brief": "# Flow `anfrage-bestaetigen` — Anfrage bestätigen\nEine neue Buchungsanfrage prüfen, Besitzer und Hund anlegen, die Buchung eintragen und die Anfrage auf bestätigt setzen.\n\n## Your hook — import it, never rebuild what it owns\n`import { useAnfrageBestaetigenFlow } from '@/lib/journey/flows/AnfrageBestaetigen';` — generated from the Schreibliste below. It OWNS the form(s), one record search per picked field (columns and filter from the plan) and the submit plan with every fixed and derived value. You compose: `flow.forms.<entity>` for <Bound>/<Field>, `{...flow.picks.<field>.select} {...flow.pick('<field>')}` (or `flow.pickMany` for a multi pick) for <EntitySelectStep>, `flow.validateStep(n)` in StepNav.onNext, `flow.submit` + `flow.formList` for SummaryStep/SuccessStep, `flow.reset()`; what the hook does not own reads through its door `flow.port` — availability `useOccupancy(flow.port, '<entity>', { resource })`, a count `useRecordCount(flow.port, …)` — never import servicePort next to the hook. Options: `steps` (field → step), `items` (how a hit reads, per pick: besitzer, hund), `initial`, `messages`. The hook's docblock in .lane-context.md shows the exact call. This flow CHANGES a record of `buchungsanfragen`: `{...flow.picks.buchungsanfragen.select} {...flow.pick('buchungsanfragen')}` picks it, the hook prefills the form with its current values and updates THAT record — never a create step, never a list from useDashboardData. Never import servicePort, useStepForm, useJourneySubmit, useRecordSearch or useDashboardData in this page — check-intents refuses a page that uses the hook and any of them.\n\n## Steps (in this order)\n1. Neue Anfrage auswählen\n2. Besitzerdaten und Hundedaten aus der Anfrage übernehmen und ergänzen\n3. Freien Platz für den Wunschzeitraum wählen\n4. Buchung anlegen und Anfrage bestätigen\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- creates `besitzer`:\n    - `vorname`: derived from the picked record's `buchungsanfragen.interessent_vorname` — never ask\n    - `nachname`: derived from the picked record's `buchungsanfragen.interessent_nachname` — never ask\n    - `email`: derived from the picked record's `buchungsanfragen.interessent_email` — never ask\n    - `telefon`: derived from the picked record's `buchungsanfragen.interessent_telefon` — never ask\n- creates `hundekartei`:\n    - `name`: derived from the picked record's `buchungsanfragen.hund_name` — never ask\n    - `rasse`: derived from the picked record's `buchungsanfragen.hund_rasse` — never ask\n    - `besitzer`: from the record the user picks in this flow\n    - `impfstatus`: the user enters it (bind it through the layer: form.field/…)\n- creates `belegung_buchungen`:\n    - `hund`: from the record the user picks in this flow\n    - `anreisedatum`: derived from the picked record's `buchungsanfragen.wunsch_anreise` — never ask\n    - `abreisedatum`: derived from the picked record's `buchungsanfragen.wunsch_abreise` — never ask\n    - `platznummer`: the user enters it (bind it through the layer: form.field/…)\n    - `status`: fixed value `aktiv` — set it in the plan step's values, never ask\n    - `preis_euro`: the user enters it (bind it through the layer: form.field/…)\n- updates `buchungsanfragen`:\n    - `anfrage_status`: fixed value `bestaetigt` — set it in the plan step's values, never ask\n\n## Reads\n- `buchungsanfragen` columns interessent_vorname, interessent_nachname, hund_name, wunsch_anreise, wunsch_abreise, anfrage_status\n- `belegung_buchungen` columns platznummer, anreisedatum, abreisedatum\n\n## Checks BEFORE the write (block the submit with the message when they fail)\n- no_overlap (from=`belegung_buchungen.anreisedatum`, to=`belegung_buchungen.abreisedatum`, resource=`belegung_buchungen.platznummer`) — message: „Dieser Platz ist im gewählten Zeitraum schon belegt.“\n\n## Success page\n- shows: `belegung_buchungen.hund`, `belegung_buchungen.platznummer`\n- next flows to offer: `portraet-erstellen`\n\n## Never write these — another flow or a tool owns them\n- `belegung_buchungen.notizen` (owner: intent `aufenthalt-buchen`)\n- `pfoten_portraet.hund` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besitzer` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.titel` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.widmung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.charakterbeschreibung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.lieblingsaktivitaet` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besondere_momente` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.portraet_foto` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.erstellungsdatum` (owner: intent `portraet-erstellen`)\n- `belegung_buchungen.besitzer` (owner: tool `buchung-besitzer-setzen`)\n"
+    },
+    {
+      "slug": "anfrage-ablehnen",
+      "label": {
+        "de": "Anfrage ablehnen",
+        "en": "Decline inquiry"
+      },
+      "description": "Eine neue Buchungsanfrage ablehnen, zum Beispiel weil nichts frei ist.",
+      "priority": "nice",
+      "writes": [
+        {
+          "entity": "buchungsanfragen",
+          "op": "update",
+          "when": "always",
+          "fields": {
+            "anfrage_status": "fixed:abgelehnt"
+          },
+          "needs": {}
+        }
+      ],
+      "required": [],
+      "brief": "# Flow `anfrage-ablehnen` — Anfrage ablehnen\nEine neue Buchungsanfrage ablehnen, zum Beispiel weil nichts frei ist.\n\n## Your hook — import it, never rebuild what it owns\n`import { useAnfrageAblehnenFlow } from '@/lib/journey/flows/AnfrageAblehnen';` — generated from the Schreibliste below. It OWNS the form(s), one record search per picked field (columns and filter from the plan) and the submit plan with every fixed and derived value. You compose: `flow.forms.<entity>` for <Bound>/<Field>, `{...flow.picks.<field>.select} {...flow.pick('<field>')}` (or `flow.pickMany` for a multi pick) for <EntitySelectStep>, `flow.validateStep(n)` in StepNav.onNext, `flow.submit` + `flow.formList` for SummaryStep/SuccessStep, `flow.reset()`; what the hook does not own reads through its door `flow.port` — availability `useOccupancy(flow.port, '<entity>', { resource })`, a count `useRecordCount(flow.port, …)` — never import servicePort next to the hook. Options: `steps` (field → step), `items` (how a hit reads, per pick), `initial`, `messages`. The hook's docblock in .lane-context.md shows the exact call. This flow CHANGES a record of `buchungsanfragen`: `{...flow.picks.buchungsanfragen.select} {...flow.pick('buchungsanfragen')}` picks it, the hook prefills the form with its current values and updates THAT record — never a create step, never a list from useDashboardData. Never import servicePort, useStepForm, useJourneySubmit, useRecordSearch or useDashboardData in this page — check-intents refuses a page that uses the hook and any of them.\n\n## Steps (in this order)\n1. Neue Anfrage auswählen\n2. Ablehnen\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- updates `buchungsanfragen`:\n    - `anfrage_status`: fixed value `abgelehnt` — set it in the plan step's values, never ask\n\n## Reads\n- `buchungsanfragen` columns interessent_nachname, hund_name, wunsch_anreise, wunsch_abreise\n\n## Success page\n- shows: `buchungsanfragen.anfrage_status`\n\n## Never write these — another flow or a tool owns them\n- `belegung_buchungen.hund` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.anreisedatum` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.abreisedatum` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.platznummer` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.status` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.preis_euro` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.notizen` (owner: intent `aufenthalt-buchen`)\n- `besitzer.vorname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.nachname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.email` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.telefon` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.name` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.rasse` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.besitzer` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.impfstatus` (owner: intent `anfrage-bestaetigen`)\n- `pfoten_portraet.hund` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besitzer` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.titel` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.widmung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.charakterbeschreibung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.lieblingsaktivitaet` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besondere_momente` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.portraet_foto` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.erstellungsdatum` (owner: intent `portraet-erstellen`)\n- `belegung_buchungen.besitzer` (owner: tool `buchung-besitzer-setzen`)\n"
+    },
+    {
+      "slug": "portraet-erstellen",
+      "label": {
+        "de": "Pfoten-Porträt erstellen",
+        "en": "Create paw portrait"
+      },
+      "description": "Für einen Gast ein Aufenthaltsporträt mit Foto und kleinen Geschichten für die Besitzer anlegen.",
+      "priority": "must",
+      "writes": [
+        {
+          "entity": "pfoten_portraet",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "hund": "picked",
+            "besitzer": "derived:from_pick:hundekartei.besitzer",
+            "titel": "user",
+            "widmung": "user",
+            "charakterbeschreibung": "user",
+            "lieblingsaktivitaet": "user",
+            "besondere_momente": "user",
+            "portraet_foto": "user",
+            "erstellungsdatum": "derived:today"
+          },
+          "needs": {}
+        }
+      ],
+      "required": [],
+      "brief": "# Flow `portraet-erstellen` — Pfoten-Porträt erstellen\nFür einen Gast ein Aufenthaltsporträt mit Foto und kleinen Geschichten für die Besitzer anlegen.\n\n## Your hook — import it, never rebuild what it owns\n`import { usePortraetErstellenFlow } from '@/lib/journey/flows/PortraetErstellen';` — generated from the Schreibliste below. It OWNS the form(s), one record search per picked field (columns and filter from the plan) and the submit plan with every fixed and derived value. You compose: `flow.forms.<entity>` for <Bound>/<Field>, `{...flow.picks.<field>.select} {...flow.pick('<field>')}` (or `flow.pickMany` for a multi pick) for <EntitySelectStep>, `flow.validateStep(n)` in StepNav.onNext, `flow.submit` + `flow.formList` for SummaryStep/SuccessStep, `flow.reset()`; what the hook does not own reads through its door `flow.port` — availability `useOccupancy(flow.port, '<entity>', { resource })`, a count `useRecordCount(flow.port, …)` — never import servicePort next to the hook. Options: `steps` (field → step), `items` (how a hit reads, per pick: hund), `initial`, `messages`. The hook's docblock in .lane-context.md shows the exact call. Never import servicePort, useStepForm, useJourneySubmit, useRecordSearch or useDashboardData in this page — check-intents refuses a page that uses the hook and any of them.\n\n## Steps (in this order)\n1. Hund wählen\n2. Titel, Widmung und Charakterbeschreibung schreiben\n3. Lieblingsaktivität und besondere Momente ergänzen\n4. Foto hochladen und speichern\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- creates `pfoten_portraet`:\n    - `hund`: from the record the user picks in this flow\n    - `besitzer`: derived from the picked record's `hundekartei.besitzer` — never ask\n    - `titel`: the user enters it (bind it through the layer: form.field/…)\n    - `widmung`: the user enters it (bind it through the layer: form.field/…)\n    - `charakterbeschreibung`: the user enters it (bind it through the layer: form.field/…)\n    - `lieblingsaktivitaet`: the user enters it (bind it through the layer: form.field/…)\n    - `besondere_momente`: the user enters it (bind it through the layer: form.field/…)\n    - `portraet_foto`: the user enters it (bind it through the layer: form.field/…)\n    - `erstellungsdatum`: derived: today() — set it in the plan step, never ask\n\n## Reads\n- `hundekartei` columns name, rasse, besitzer, foto\n\n## Success page\n- shows: `pfoten_portraet.titel`, `pfoten_portraet.hund`\n\n## Never write these — another flow or a tool owns them\n- `belegung_buchungen.hund` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.anreisedatum` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.abreisedatum` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.platznummer` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.status` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.preis_euro` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.notizen` (owner: intent `aufenthalt-buchen`)\n- `besitzer.vorname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.nachname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.email` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.telefon` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.name` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.rasse` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.besitzer` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.impfstatus` (owner: intent `anfrage-bestaetigen`)\n- `buchungsanfragen.anfrage_status` (owner: intent `anfrage-bestaetigen`)\n- `belegung_buchungen.besitzer` (owner: tool `buchung-besitzer-setzen`)\n"
+    },
+    {
+      "slug": "buchung-abschliessen",
+      "label": {
+        "de": "Aufenthalt abschließen",
+        "en": "Complete stay"
+      },
+      "description": "Einen laufenden Aufenthalt nach der Abreise abschließen oder die Buchung stornieren.",
+      "priority": "nice",
+      "writes": [
+        {
+          "entity": "belegung_buchungen",
+          "op": "update",
+          "when": "always",
+          "fields": {
+            "status": "user"
+          },
+          "needs": {}
+        }
+      ],
+      "required": [],
+      "brief": "# Flow `buchung-abschliessen` — Aufenthalt abschließen\nEinen laufenden Aufenthalt nach der Abreise abschließen oder die Buchung stornieren.\n\n## Your hook — import it, never rebuild what it owns\n`import { useBuchungAbschliessenFlow } from '@/lib/journey/flows/BuchungAbschliessen';` — generated from the Schreibliste below. It OWNS the form(s), one record search per picked field (columns and filter from the plan) and the submit plan with every fixed and derived value. You compose: `flow.forms.<entity>` for <Bound>/<Field>, `{...flow.picks.<field>.select} {...flow.pick('<field>')}` (or `flow.pickMany` for a multi pick) for <EntitySelectStep>, `flow.validateStep(n)` in StepNav.onNext, `flow.submit` + `flow.formList` for SummaryStep/SuccessStep, `flow.reset()`; what the hook does not own reads through its door `flow.port` — availability `useOccupancy(flow.port, '<entity>', { resource })`, a count `useRecordCount(flow.port, …)` — never import servicePort next to the hook. Options: `steps` (field → step), `items` (how a hit reads, per pick), `initial`, `messages`. The hook's docblock in .lane-context.md shows the exact call. This flow CHANGES a record of `belegung_buchungen`: `{...flow.picks.belegung_buchungen.select} {...flow.pick('belegung_buchungen')}` picks it, the hook prefills the form with its current values and updates THAT record — never a create step, never a list from useDashboardData. Never import servicePort, useStepForm, useJourneySubmit, useRecordSearch or useDashboardData in this page — check-intents refuses a page that uses the hook and any of them.\n\n## Steps (in this order)\n1. Aktive Buchung auswählen\n2. Abschließen oder stornieren\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- updates `belegung_buchungen`:\n    - `status`: the user enters it (bind it through the layer: form.field/…)\n\n## Reads\n- `belegung_buchungen` columns hund, platznummer, anreisedatum, abreisedatum, status\n\n## Success page\n- shows: `belegung_buchungen.status`\n- next flows to offer: `portraet-erstellen`\n\n## Never write these — another flow or a tool owns them\n- `belegung_buchungen.hund` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.anreisedatum` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.abreisedatum` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.platznummer` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.preis_euro` (owner: intent `aufenthalt-buchen`)\n- `belegung_buchungen.notizen` (owner: intent `aufenthalt-buchen`)\n- `besitzer.vorname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.nachname` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.email` (owner: intent `anfrage-bestaetigen`)\n- `besitzer.telefon` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.name` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.rasse` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.besitzer` (owner: intent `anfrage-bestaetigen`)\n- `hundekartei.impfstatus` (owner: intent `anfrage-bestaetigen`)\n- `buchungsanfragen.anfrage_status` (owner: intent `anfrage-bestaetigen`)\n- `pfoten_portraet.hund` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besitzer` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.titel` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.widmung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.charakterbeschreibung` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.lieblingsaktivitaet` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.besondere_momente` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.portraet_foto` (owner: intent `portraet-erstellen`)\n- `pfoten_portraet.erstellungsdatum` (owner: intent `portraet-erstellen`)\n- `belegung_buchungen.besitzer` (owner: tool `buchung-besitzer-setzen`)\n"
+    }
+  ],
+  "public_pages": [
+    {
+      "slug": "reservierungsanfrage",
+      "purpose": "Interessenten sehen auf der Website, welche Zeiträume je Platz belegt bzw. frei sind (die Anwendung zeigt nur Platznummer, Anreise und Abreise aktiver Buchungen, ohne Namen oder Besitzerdaten), und stellen darunter eine Reservierungsanfrage für ihren Hund. Die Anfrage landet mit Status Neu bei den Mitarbeitenden.",
+      "publish": true,
+      "lists": [
+        {
+          "entity": "belegung_buchungen",
+          "columns": [
+            "platznummer",
+            "anreisedatum",
+            "abreisedatum"
+          ],
+          "filter": {
+            "mode": "all",
+            "conditions": [
+              {
+                "field": "status",
+                "op": "eq",
+                "value": "aktiv"
+              },
+              {
+                "field": "abreisedatum",
+                "op": "gte",
+                "value": {
+                  "rel": "today"
+                }
+              }
+            ]
+          },
+          "max_records": null
+        }
+      ],
+      "creates": [
+        {
+          "entity": "buchungsanfragen",
+          "fields": {
+            "interessent_vorname": "user",
+            "interessent_nachname": "user",
+            "interessent_email": "user",
+            "interessent_telefon": "user",
+            "hund_name": "user",
+            "hund_rasse": "user",
+            "hund_groesse": "user",
+            "wunsch_anreise": "user",
+            "wunsch_abreise": "user",
+            "nachricht": "user"
+          },
+          "fixed": {
+            "anfrage_status": "neu"
+          }
+        }
+      ],
+      "brief": "# Public page `reservierungsanfrage`\nInteressenten sehen auf der Website, welche Zeiträume je Platz belegt bzw. frei sind (die Anwendung zeigt nur Platznummer, Anreise und Abreise aktiver Buchungen, ohne Namen oder Besitzerdaten), und stellen darunter eine Reservierungsanfrage für ihren Hund. Die Anfrage landet mit Status Neu bei den Mitarbeitenden.\n\n## Lists (declare exactly these in the surface)\n- `belegung_buchungen`: columns `platznummer`, `anreisedatum`, `abreisedatum`, filter {\"mode\": \"all\", \"conditions\": [{\"field\": \"status\", \"op\": \"eq\", \"value\": \"aktiv\"}, {\"field\": \"abreisedatum\", \"op\": \"gte\", \"value\": {\"rel\": \"today\"}}]}\n\n## Creates (declare exactly these in the surface)\n- `buchungsanfragen`: visitor fields `interessent_vorname`, `interessent_nachname`, `interessent_email`, `interessent_telefon`, `hund_name`, `hund_rasse`, `hund_groesse`, `wunsch_anreise`, `wunsch_abreise`, `nachricht`; preset_fields {\"anfrage_status\": \"neu\"}\n\n## Availability — mechanical, write nothing for it\nA picker (`useRecordSearch`) never offers a record another record already takes (a booked slot) — the layer leaves it out. To SHOW booked periods, call `useOccupancy(port, '<entity>')` and hand `blocked` to AvailabilityRangePicker; the integration gives the page exactly that read (dates or the reference, never who booked). Never declare a list of bookings with names or contacts to work availability out yourself.\n\nPublish: yes\n"
+    }
+  ],
+  "tools": [
+    {
+      "id": "wochenbericht-senden",
+      "purpose": "Jeden Montag früh einen Bericht über die letzte Woche erstellen: neue Buchungsanfragen, Anreisen, Abreisen, abgeschlossene und stornierte Buchungen, neue Pfoten-Porträts. Als PDF erzeugen, als App-Datei speichern und per E-Mail an die Inhaberin senden (Link zur Datei, kein Anhang). Ohne Schreibzugriff auf Felder."
+    },
+    {
+      "id": "buchung-besitzer-setzen",
+      "purpose": "Bei neuen Buchungen ohne Besitzer den Besitzer aus dem gewählten Hund übernehmen. Prüft im Code, ob das Feld Besitzer leer ist; die Abläufe schreiben den Besitzer bereits, das Werkzeug greift nur bei Buchungen vom Formular."
+    },
+    {
+      "id": "buchungen-abschliessen",
+      "purpose": "Täglich aktive Buchungen, deren Abreisedatum vorbei ist, auf Abgeschlossen setzen."
+    }
+  ],
+  "covered_by_platform": [
+    {
+      "wish": "Besitzer und ihre Hunde verwalten",
+      "feature": "record_form"
+    },
+    {
+      "wish": "Besitzer und Hunde durchsuchen und filtern",
+      "feature": "search_filter"
+    },
+    {
+      "wish": "Übersicht, wie viele Buchungen pro Status oder Platz",
+      "feature": "distribution_view"
+    },
+    {
+      "wish": "Dokumente und Notizen zu Gästen anhängen",
+      "feature": "record_attachments"
+    }
+  ],
+  "ownership": {
+    "belegung_buchungen": {
+      "hund": "intent:anfrage-bestaetigen",
+      "anreisedatum": "intent:anfrage-bestaetigen",
+      "abreisedatum": "intent:anfrage-bestaetigen",
+      "platznummer": "intent:anfrage-bestaetigen",
+      "status": "tool:buchungen-abschliessen",
+      "preis_euro": "intent:anfrage-bestaetigen",
+      "notizen": "intent:aufenthalt-buchen",
+      "besitzer": "tool:buchung-besitzer-setzen"
+    },
+    "besitzer": {
+      "vorname": "intent:anfrage-bestaetigen",
+      "nachname": "intent:anfrage-bestaetigen",
+      "email": "intent:anfrage-bestaetigen",
+      "telefon": "intent:anfrage-bestaetigen"
+    },
+    "hundekartei": {
+      "name": "intent:anfrage-bestaetigen",
+      "rasse": "intent:anfrage-bestaetigen",
+      "besitzer": "intent:anfrage-bestaetigen",
+      "impfstatus": "intent:anfrage-bestaetigen"
+    },
+    "buchungsanfragen": {
+      "anfrage_status": "intent:anfrage-ablehnen"
+    },
+    "pfoten_portraet": {
+      "hund": "intent:portraet-erstellen",
+      "besitzer": "intent:portraet-erstellen",
+      "titel": "intent:portraet-erstellen",
+      "widmung": "intent:portraet-erstellen",
+      "charakterbeschreibung": "intent:portraet-erstellen",
+      "lieblingsaktivitaet": "intent:portraet-erstellen",
+      "besondere_momente": "intent:portraet-erstellen",
+      "portraet_foto": "intent:portraet-erstellen",
+      "erstellungsdatum": "intent:portraet-erstellen"
+    }
+  },
+  "dashboard": {
+    "focus": [
+      "Aktuelle Gäste und heutige Anreisen und Abreisen",
+      "Neue Buchungsanfragen",
+      "Belegung der Plätze in den nächsten Wochen",
+      "Zuletzt erstellte Pfoten-Porträts"
+    ],
+    "hints": [
+      "Anfragen mit Status Neu zuerst zeigen",
+      "Belegung nach Platznummer und Zeitraum darstellen",
+      "Hunde ohne vollständigen Impfstatus bei kommenden Aufenthalten hervorheben"
+    ],
+    "wishes": []
+  }
+}
