@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Abschließen": "Complete",
+      "Aktuell zu Gast: {0}.": "Currently staying: {0}.",
+      "Alle Plätze sind frei — Zeit für neue Gäste.": "All spots are free — time for new guests.",
+      "Alle aktuellen Gäste haben ein Porträt.": "All current guests have a portrait.",
+      "Alle aktuellen Gäste sind vollständig geimpft.": "All current guests are fully vaccinated.",
+      "Als Nächstes kommt {0} am {1}.": "Next up is {0} on {1}.",
+      "Anfrage bearbeiten": "Edit request",
+      "Anfrage prüfen": "Review request",
+      "Anreise": "Arrival",
+      "Anreisen & Abreisen": "Arrivals & departures",
+      "Anreisen (3 Tage)": "Arrivals (3 days)",
+      "Aufenthalt abschließen": "Complete stay",
+      "Buchung verschoben": "Booking rescheduled",
+      "Dieser Platz ist im gewählten Zeitraum schon belegt.": "This spot is already booked for the selected period.",
+      "Ergänzen": "Add",
+      "Gäste ohne Pfoten-Porträt": "Guests without paw portrait",
+      "Heute belegt": "Occupied today",
+      "Heute kommt {0} zu Besuch.": "{0} is visiting today.",
+      "Heute reisen {0} an — {1} geht nach Hause.": "{0} arriving today — {1} going home.",
+      "Heute wird {0} abgeholt.": "{0} is being picked up today.",
+      "Hund": "Dog",
+      "Impfstatus prüfen": "Check vaccination status",
+      "Keine Anreisen oder Abreisen in den nächsten Tagen.": "No arrivals or departures in the next few days.",
+      "Neue Buchung": "New booking",
+      "Ohne Porträt": "No portrait",
+      "Porträt anlegen": "Create portrait",
+      "Unbekannt": "Unknown",
+      "ein neuer Gast": "a new guest",
+      "ohne Platz": "no spot",
+      "wartet auf deine Antwort": "awaiting your reply",
+      "— {0} neue Buchungsanfragen warten auf deine Antwort": "— {0} new booking requests awaiting your reply"
+    }
+  },
+  "v": 1
+}
