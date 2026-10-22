@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "Besitzer": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten des Besitzers ohne numerische Felder, daher keine Formeln oder Standardwerte."
+    },
+    "Hundekartei": {
+      "placeholders_set": 7,
+      "defaults_keys": [
+        "impfstatus"
+      ],
+      "computed_keys": [],
+      "reason": "Hundekartei ist reine Stammdaten ohne Datumspaare oder Preise, daher keine Formeln."
+    },
+    "Belegung & Buchungen": {
+      "placeholders_set": 7,
+      "defaults_keys": [
+        "anreisedatum",
+        "abreisedatum",
+        "status"
+      ],
+      "computed_keys": [
+        "_buchung_dauer_tage"
+      ],
+      "reason": "Die Aufenthaltsdauer wird aus Anreise und Abreise als virtuelles Feld berechnet; ein Preis per applookup ist nicht verfügbar (nur Gewicht beim Hund), daher keine Preisformel."
+    },
+    "Buchungsanfragen": {
+      "placeholders_set": 8,
+      "defaults_keys": [
+        "wunsch_anreise",
+        "wunsch_abreise",
+        "anfrage_status"
+      ],
+      "computed_keys": [
+        "_anfrage_dauer_tage"
+      ],
+      "reason": "Anreise und Abreise bilden ein Datumspaar, daher wird die Aufenthaltsdauer in Tagen als virtuelles Feld berechnet; kein Preis per applookup verfügbar, also keine Gesamtsumme."
+    },
+    "Pfoten-Porträt": {
+      "placeholders_set": 8,
+      "defaults_keys": [
+        "erstellungsdatum"
+      ],
+      "computed_keys": [],
+      "reason": "Keine Formel, da das Porträt nur Texte und Verknüpfungen enthält und kein Preis- oder Mengenfeld vorhanden ist."
+    },
+    "Website-Inhalte": {
+      "placeholders_set": 14,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten der Website ohne numerische Berechnungskette, daher keine Formeln und keine sinnvollen Standardwerte."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Abreisen heute": "Departures today",
+      "Anfrage bearbeiten": "Edit request",
+      "Anreise": "Arrival",
+      "Anreisen heute": "Arrivals today",
+      "Belegte Plätze": "Occupied spaces",
+      "Heute ist es ruhig — als Nächstes kommt {0} am {1}.": "Quiet today — next up is {0} on {1}.",
+      "Heute keine Bewegungen.": "No movements today.",
+      "Heute reisen {0} ab.": "Today {0} depart.",
+      "Heute reisen {0} an und {1} ab.": "Today {0} arrive and {1} depart.",
+      "Heute reisen {0} an.": "Today {0} arrive.",
+      "Heute stehen keine Anreisen oder Abreisen an.": "No arrivals or departures today.",
+      "Heute: Anreisen & Abreisen": "Today: Arrivals & Departures",
+      "In den nächsten Tagen ist nichts geplant.": "Nothing planned for the next few days.",
+      "Neue Anfrage von {0} für {1} — Wunschzeit {2} bis {3}.": "New request from {0} for {1} — preferred time {2} to {3}.",
+      "Noch keine Porträts erstellt.": "No profiles created yet.",
+      "Nächste 3 Tage": "Next 3 days",
+      "Nächste Anreise: {0} am {1}": "Next arrival: {0} on {1}",
+      "Ohne Hund": "No dog",
+      "Porträt": "Profile",
+      "ein Gast": "one guest",
+      "einen Hund": "one dog",
+      "ohne Platz": "no space",
+      "{0} neue Anfragen warten, zuletzt von {1}.": "{0} new requests waiting, most recent from {1}."
+    }
+  },
+  "v": 1
+}

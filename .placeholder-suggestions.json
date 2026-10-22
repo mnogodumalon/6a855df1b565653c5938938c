@@ -1,0 +1,66 @@
+{
+  "BesitzerDialog.tsx": {
+    "vorname": "z. B. Anna",
+    "nachname": "z. B. Müller",
+    "email": "z. B. anna@beispiel.de",
+    "strasse": "z. B. Lindenweg",
+    "hausnummer": "z. B. 12a",
+    "plz": "z. B. 80331",
+    "ort": "z. B. München",
+    "notizen": "Besonderheiten zum Besitzer"
+  },
+  "HundekarteiDialog.tsx": {
+    "besitzer": "Welcher Besitzer?",
+    "gesundheitshinweise": "Allergien, Medikamente, Besonderheiten",
+    "fuetterungshinweise": "Futterart, Menge, Zeiten",
+    "name": "z. B. Bruno",
+    "rasse": "z. B. Labrador",
+    "geburtsdatum": "Wann wurde der Hund geboren?",
+    "gewicht_kg": "z. B. 12,5"
+  },
+  "BelegungBuchungenDialog.tsx": {
+    "hund": "Welcher Hund?",
+    "besitzer": "Welcher Besitzer?",
+    "anreisedatum": "Wann reist der Hund an?",
+    "abreisedatum": "Wann reist der Hund ab?",
+    "platznummer": "z. B. Platz 1, Platz 2",
+    "preis_euro": "z. B. 150",
+    "notizen": "Besonderheiten zur Buchung"
+  },
+  "BuchungsanfragenDialog.tsx": {
+    "interessent_vorname": "z. B. Anna",
+    "interessent_nachname": "z. B. Müller",
+    "interessent_email": "z. B. anna@beispiel.de",
+    "hund_name": "z. B. Bello",
+    "hund_rasse": "z. B. Labrador",
+    "wunsch_anreise": "Wann reist der Hund an?",
+    "wunsch_abreise": "Wann wird er abgeholt?",
+    "nachricht": "Allergien, Medikamente, Besonderheiten"
+  },
+  "PfotenPortraetDialog.tsx": {
+    "hund": "Welcher Hund?",
+    "besitzer": "Wer ist der Besitzer?",
+    "titel": "z. B. Bellos Ferienwoche",
+    "widmung": "Eine persönliche Widmung",
+    "charakterbeschreibung": "Wie ist der Hund so?",
+    "lieblingsaktivitaet": "z. B. Ballspielen",
+    "besondere_momente": "Was war besonders?",
+    "erstellungsdatum": "Wann wurde es erstellt?"
+  },
+  "WebsiteInhalteDialog.tsx": {
+    "unternehmensname": "z. B. PfotenPension Sonnenhof",
+    "slogan": "z. B. Urlaub für Fellnasen",
+    "beschreibung": "Was bietet Ihre Pension?",
+    "anzahl_plaetze": "z. B. 12",
+    "leistungen": "Eine Leistung pro Zeile",
+    "oeffnungszeiten": "Eine Zeitangabe pro Zeile",
+    "email": "z. B. info@pfotenpension.de",
+    "website_url": "z. B. https://pfotenpension.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 12a",
+    "plz": "z. B. 80331",
+    "ort": "z. B. München",
+    "instagram": "z. B. https://instagram.com/pfotenpension",
+    "facebook": "z. B. https://facebook.com/pfotenpension"
+  }
+}
