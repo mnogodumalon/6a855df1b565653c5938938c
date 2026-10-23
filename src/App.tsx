@@ -14,6 +14,11 @@ import { IntentPolicyLoader } from '@/components/IntentPolicyLoader';
 import IntentsAdmin from '@/pages/IntentsAdmin';
 import AppMap from '@/pages/AppMap';
 // <custom:imports>
+const IntentAufenthaltBuchenPage = lazy(() => import('@/pages/intents/AufenthaltBuchenPage'));
+import { DashboardSkeleton } from '@/components/DashboardStates';
+const IntentAnfrageBearbeitenPage = lazy(() => import('@/pages/intents/AnfrageBearbeitenPage'));
+const IntentPortraetErstellenPage = lazy(() => import('@/pages/intents/PortraetErstellenPage'));
+const IntentAufenthaltAbschliessenPage = lazy(() => import('@/pages/intents/AufenthaltAbschliessenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -85,6 +90,10 @@ export default function App() {
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 <Route path="verwaltung/oeffentliche-seiten/:slug/felder" element={<PublicPageFields />} />
                 {/* <custom:routes> */}
+                <Route path="intents/aufenthalt-buchen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAufenthaltBuchenPage /></Suspense>} />
+                <Route path="intents/anfrage-bearbeiten" element={<Suspense fallback={<DashboardSkeleton />}><IntentAnfrageBearbeitenPage /></Suspense>} />
+                <Route path="intents/portraet-erstellen" element={<Suspense fallback={<DashboardSkeleton />}><IntentPortraetErstellenPage /></Suspense>} />
+                <Route path="intents/aufenthalt-abschliessen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAufenthaltAbschliessenPage /></Suspense>} />
                 {/* </custom:routes> */}
                 {/* An unknown hash (a bookmark from before a rebuild renamed the
                     flows, a mistyped link) must not be a blank page. */}
