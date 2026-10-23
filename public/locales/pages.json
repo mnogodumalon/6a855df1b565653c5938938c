@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "en": {
+      "Abreise heute": "Departure today",
+      "Abreise überfällig": "Departure overdue",
+      "Abschließen": "Complete",
+      "Alle aktuellen Gäste haben ein Porträt.": "All current guests have a portrait.",
+      "An- & Abreisen heute": "Arrivals & departures today",
+      "Anfrage": "Request",
+      "Anfrage prüfen": "Review request",
+      "Anfrage prüfen & bestätigen": "Review & confirm request",
+      "Anfrage öffnen": "Open request",
+      "Anreise heute": "Arrival today",
+      "Aufenthalt abschließen": "Complete stay",
+      "Aufenthalt läuft": "Stay in progress",
+      "Aufenthalt verschoben": "Stay rescheduled",
+      "Dieser Platz ist in dem Zeitraum bereits belegt.": "This spot is already booked for that period.",
+      "Gast": "Guest",
+      "Gerade ist kein Hund zu Gast — Zeit für neue Buchungen.": "No dogs staying right now — time for new bookings.",
+      "Gäste ohne Pfoten-Porträt": "Guests without paw portrait",
+      "Gäste ohne Porträt": "Guests without portrait",
+      "Heute keine Wechsel — alles ruhig.": "No changes today — all quiet.",
+      "Heute kommt {0} — und {1} reist ab.": "{0} arrives today — and {1} departs.",
+      "Heute kommt {0}.": "{0} arrives today.",
+      "Heute reist {0} ab.": "{0} departs today.",
+      "Neuer Aufenthalt": "New stay",
+      "Plätze heute belegt": "Spots booked today",
+      "Plätze morgen belegt": "Spots booked tomorrow",
+      "Porträt anlegen": "Create portrait",
+      "Sobald Gäste da sind, erscheinen sie hier.": "Guests will appear here once they arrive.",
+      "Zu Gast sind gerade {0}.": "Currently staying: {0}.",
+      "bis {0}": "until {0}",
+      "früheste Anreise": "earliest arrival",
+      "warten auf deine Antwort": "awaiting your reply",
+      "wartet auf deine Antwort": "awaiting your reply"
+    }
+  },
+  "v": 1
+}
