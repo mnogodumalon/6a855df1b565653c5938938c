@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Alle Gäste haben ein Porträt.": "All guests have a portrait.",
+      "Anfrage prüfen": "Review request",
+      "Anfrage öffnen": "Open request",
+      "Anreise": "Arrival",
+      "Anreisen & Abreisen": "Arrivals & departures",
+      "Anreisen (3 Tage)": "Arrivals (3 days)",
+      "Aufenthalt verschoben": "Stay rescheduled",
+      "Buchungen nach Status": "Bookings by status",
+      "Gast": "Guest",
+      "Gäste ohne Pfoten-Porträt": "Guests without paw portrait",
+      "Heute gehen {0} nach Hause.": "{0} going home today.",
+      "Heute reisen {0} an — {1} gehen nach Hause.": "{0} arriving today — {1} going home.",
+      "Heute reisen {0} an.": "{0} arriving today.",
+      "Hund": "Dog",
+      "Keine Wechsel in 3 Tagen — nächste Anreise: {0}, {1}": "No changes in 3 days — next arrival: {0}, {1}",
+      "Keine Wechsel in den nächsten Tagen.": "No changes in the next few days.",
+      "Neuer Aufenthalt": "New stay",
+      "Noch keine Aufenthalte geplant — trage den ersten Gast ein.": "No stays scheduled yet — add the first guest.",
+      "Ohne Porträt": "No portrait",
+      "Platz bereits belegt von {0}": "Spot already taken by {0}",
+      "Plätze belegt": "Spots taken",
+      "Porträt anlegen": "Create portrait",
+      "Ruhiger Tag — als Nächstes kommt {0} am {1}.": "Quiet day — next up is {0} on {1}.",
+      "Zu Gast sind {0} — keine Wechsel heute.": "{0} staying — no changes today.",
+      "ein Gast": "a guest",
+      "einem anderen Gast": "another guest",
+      "warten auf Antwort — zuerst {0}, Wunsch ab {1}.": "awaiting reply — {0} first, requested from {1}.",
+      "wartet auf Antwort — {0}, Wunsch ab {1}.": "awaiting reply — {0}, requested from {1}."
+    }
+  },
+  "v": 1
+}
