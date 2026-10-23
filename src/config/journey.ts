@@ -35,8 +35,8 @@ export interface OccupancyRule {
 
 export const OCCUPANCY: Partial<Record<EntityKey, OccupancyRule>> = {
   // <custom:occupancy>
-  // decided by the plan (its no_overlap checks) — generator-owned, the build agent's decision is ignored
-  belegung_buchungen: { from: 'anreisedatum', to: 'abreisedatum', resource: 'platznummer', statusField: 'status', freeKeys: ['storniert', 'abgeschlossen'] },
+  // belegung_buchungen: no rule — its resource 'platznummer' is a plain lookup, not an applookup,
+  // so no per-resource availability calendar is possible (a rule without resource would treat all 12 Plätze as one)
   // </custom:occupancy>
 };
 
