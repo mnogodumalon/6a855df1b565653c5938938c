@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "buchungsanfrage",
+      "component": "Reservierungsanfrage",
+      "title": "Reservierungsanfrage",
+      "endpoints": [
+        {
+          "entity": "belegung_buchungen",
+          "op": "list",
+          "fields": [
+            "platznummer",
+            "anreisedatum",
+            "abreisedatum"
+          ],
+          "scope": "r.v_status == 'aktiv' and r.v_abreisedatum >= today()",
+          "scope_description": "zeigt nur aktive Buchungen, deren Abreise heute oder später ist (nur Platz und Zeitraum)",
+          "max_records": 500
+        },
+        {
+          "entity": "buchungsanfragen",
+          "op": "create",
+          "fields": [
+            "interessent_vorname",
+            "interessent_nachname",
+            "interessent_email",
+            "interessent_telefon",
+            "hund_name",
+            "hund_rasse",
+            "hund_groesse",
+            "wunsch_anreise",
+            "wunsch_abreise",
+            "nachricht"
+          ],
+          "preset_fields": {
+            "anfrage_status": "neu"
+          }
+        }
+      ]
+    }
+  ]
+}
