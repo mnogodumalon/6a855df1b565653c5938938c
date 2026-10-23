@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "en": {
+      " · aktuell/bald zu Gast": " · currently/soon staying",
+      "Abreise": "Departure",
+      "Abreisen heute": "Departures today",
+      "Abschließen": "Complete",
+      "Alle Hunde haben einen Impfstatus.": "All dogs have a vaccination status.",
+      "Als Nächstes kommt {0} am {1}.": "Next arrival: {0} on {1}.",
+      "Anfrage bestätigen": "Confirm request",
+      "Anfrage prüfen & bestätigen": "Review & confirm request",
+      "Anfrage öffnen": "Open request",
+      "Anreise": "Arrival",
+      "Anreisen heute": "Arrivals today",
+      "Aufenthalt abschließen": "Complete stay",
+      "Aufenthalt eintragen": "Add stay",
+      "Die Pension ist leer — trag den nächsten Gast ein.": "The boarding house is empty — add the next guest.",
+      "Eintragen": "Add",
+      "Gerade zu Gast: {0}.": "Currently staying: {0}.",
+      "Heute": "Today",
+      "Heute keine An- oder Abreisen.": "No arrivals or departures today.",
+      "Heute kommen {0} an — {1} reist ab.": "{0} arriving today — {1} departing.",
+      "Heute kommen {0} an.": "{0} arriving today.",
+      "Heute reist {0} ab.": "{0} departing today.",
+      "Heute ruhig — nächste Anreise: {0} am {1}": "Quiet today — next arrival: {0} on {1}",
+      "Impfstatus offen": "Vaccination status pending",
+      "Impfstatus prüfen": "Check vaccination status",
+      "In den nächsten 7 Tagen kommt niemand an.": "No one arrives in the next 7 days.",
+      "Kommende Anreisen (7 Tage)": "Upcoming arrivals (7 days)",
+      "Neuer Aufenthalt": "New stay",
+      "Nicht geimpft": "Not vaccinated",
+      "Platz ist in diesem Zeitraum schon von {0} belegt.": "Spot is already occupied by {0} during this period.",
+      "Plätze belegt": "Spots occupied",
+      "Unbekannt": "Unknown",
+      "ohne Platz": "no spot",
+      "warten auf Antwort — als Erstes {0}.": "awaiting reply — first {0}.",
+      "wartet auf Antwort — Wunschzeitraum {0} bis {1}.": "awaiting reply — requested period {0} to {1}.",
+      "{0} — verschoben": "{0} — postponed"
+    }
+  },
+  "v": 1
+}
