@@ -1,0 +1,40 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Abreisen (7 Tage)": "Departures (7 days)",
+      "Abreisen der nächsten Tage": "Upcoming departures",
+      "Abschließen": "Complete",
+      "An- & Abreisen": "Arrivals & departures",
+      "Anfrage prüfen": "Review request",
+      "Anfrage öffnen": "Open request",
+      "Anreise": "Arrival",
+      "Anreisen (7 Tage)": "Arrivals (7 days)",
+      "Anreisen der nächsten Tage": "Upcoming arrivals",
+      "Aufenthalt abschließen": "Complete stay",
+      "Aufenthalt bis {0}": "Stay until {0}",
+      "Aufenthalt planen": "Plan stay",
+      "Der Platz ist in diesem Zeitraum schon an {0} vergeben.": "The spot is already booked by {0} during this period.",
+      "Erinnerungen: Pfoten-Porträts": "Reminders: Paw portraits",
+      "Freie Plätze heute": "Free spots today",
+      "Gast": "Guest",
+      "Gerade ist die Pension leer — Zeit für neue Buchungen.": "The boarding house is empty right now — time for new bookings.",
+      "Heute im Haus": "In the house today",
+      "Heute kommt {0} an, {1} wird abgeholt.": "Today {0} arrives, {1} is picked up.",
+      "Heute kommt {0} an.": "Today {0} arrives.",
+      "Heute wird {0} abgeholt.": "Today {0} is picked up.",
+      "In den nächsten 7 Tagen steht keine An- oder Abreise an.": "No arrivals or departures in the next 7 days.",
+      "Neuer Aufenthalt": "New stay",
+      "Nächste Anreise: {0} am {1}.": "Next arrival: {0} on {1}.",
+      "Porträt erstellen": "Create portrait",
+      "Porträt fehlt": "Portrait missing",
+      "Porträt vorhanden": "Portrait available",
+      "Sobald Aufenthalte abgeschlossen sind, erscheinen hier ihre Porträts als Erinnerung.": "Once stays are completed, their portraits will appear here as a reminder.",
+      "Zu Gast sind gerade {0}.": "Currently staying: {0}.",
+      "warten auf Antwort — als Erstes {0} ab {1}.": "awaiting reply — first {0} from {1}.",
+      "wartet auf Antwort — {0} möchte ab {1} kommen.": "awaiting reply — {0} would like to arrive on {1}.",
+      "{0} — verschoben": "{0} — postponed"
+    }
+  },
+  "v": 1
+}
