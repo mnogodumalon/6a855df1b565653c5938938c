@@ -1,0 +1,41 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Abschließen": "Complete",
+      "Alle Hunde sind vollständig geimpft.": "All dogs are fully vaccinated.",
+      "Alle abgeschlossenen Aufenthalte haben ein Porträt.": "All completed stays have a portrait.",
+      "Anfrage bestätigen": "Confirm request",
+      "Anfrage prüfen": "Review request",
+      "Anfrage öffnen": "Open request",
+      "Anreise": "Arrival",
+      "Anreisen & Abreisen": "Arrivals & departures",
+      "Anreisen heute": "Arrivals today",
+      "Aufenthalt abschließen": "Complete stay",
+      "Aufenthalt verschoben": "Stay rescheduled",
+      "Auslastung 7 Tage": "7-day occupancy",
+      "Belegt heute": "Occupied today",
+      "Dieser Platz ist im gewählten Zeitraum bereits belegt.": "This spot is already booked for the selected period.",
+      "Ergänzen": "Add",
+      "Ersten Gast aufnehmen": "Admit first guest",
+      "Gerade ist kein Gast im Haus — alle zwölf Plätze sind frei.": "No guests at the moment — all twelve spots are free.",
+      "Gerade ist kein Gast im Haus — {0} wartet auf eine Antwort.": "No guests at the moment — {0} awaiting a reply.",
+      "Heute kommen {0} an — {1} wird abgeholt.": "{0} arriving today — {1} being picked up.",
+      "Heute kommen {0} an.": "{0} arriving today.",
+      "Heute wird {0} abgeholt.": "{0} being picked up today.",
+      "Impfstatus prüfen": "Check vaccination status",
+      "Keine Bewegungen bis {0}.": "No movements until {0}.",
+      "Neuer Aufenthalt": "New stay",
+      "Ohne Porträt": "No portrait",
+      "Porträt erstellen": "Create portrait",
+      "Porträt fehlt": "Portrait missing",
+      "Richte deine Hundepension ein: lege den ersten Hund an und plane seinen Aufenthalt.": "Set up your dog boarding: add the first dog and plan its stay.",
+      "Unbekannt": "Unknown",
+      "Zu Gast sind gerade {0}.": "Currently staying: {0}.",
+      "abgereist {0}": "departed {0}",
+      "warten auf eine Antwort — zuerst {0} ab {1}.": "awaiting a reply — first {0} from {1}.",
+      "wartet auf eine Antwort — {0} möchte ab {1} kommen.": "awaiting a reply — {0} would like to arrive on {1}."
+    }
+  },
+  "v": 1
+}
